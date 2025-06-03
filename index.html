@@ -339,71 +339,15 @@
 
         <!-- Personal Projects Section -->
         <section id="personal" class="section active">
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" onclick="openModal('project1')">
-                    <div class="project-preview">🎮</div>
-                    <h3 class="project-title" data-ru="Эпическая RPG Приключение" data-en="Epic Adventure RPG">Epic Adventure RPG</h3>
-                    <p class="project-description" data-ru="Фэнтезийная RPG с глубоким сюжетом и захватывающим геймплеем" data-en="A fantasy RPG with deep storyline and immersive gameplay mechanics">A fantasy RPG with deep storyline and immersive gameplay mechanics</p>
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">RPG</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" onclick="openModal('project2')">
-                    <div class="project-preview">🚀</div>
-                    <h3 class="project-title" data-ru="Космический Шутер" data-en="Space Shooter">Space Shooter</h3>
-                    <p class="project-description" data-ru="Динамичные космические бои с потрясающими визуальными эффектами" data-en="Fast-paced space combat with stunning visual effects">Fast-paced space combat with stunning visual effects</p>
-                    <div class="project-tags">
-                        <span class="tag">Unreal Engine</span>
-                        <span class="tag">Blueprint</span>
-                        <span class="tag">Action</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" onclick="openModal('project3')">
-                    <div class="project-preview">🏰</div>
-                    <h3 class="project-title" data-ru="Средневековая Стратегия" data-en="Medieval Strategy">Medieval Strategy</h3>
-                    <p class="project-description" data-ru="Строй королевство и завоевывай врагов в этой тактической стратегии" data-en="Build your kingdom and conquer enemies in this tactical strategy game">Build your kingdom and conquer enemies in this tactical strategy game</p>
-                    <div class="project-tags">
-                        <span class="tag">Godot</span>
-                        <span class="tag">GDScript</span>
-                        <span class="tag">Strategy</span>
-                    </div>
-                </div>
+            <div class="projects-grid" id="personalProjects">
+                <!-- Projects will be loaded dynamically -->
             </div>
         </section>
 
         <!-- Commercial Projects Section -->
         <section id="commercial" class="section">
-            <div class="projects-grid">
-                <!-- Commercial Project 1 -->
-                <div class="project-card" onclick="openModal('commercial1')">
-                    <div class="project-preview">💼</div>
-                    <h3 class="project-title" data-ru="Мобильная Головоломка" data-en="Mobile Puzzle Game">Mobile Puzzle Game</h3>
-                    <p class="project-description" data-ru="Награжденная головоломка с более чем 1 млн скачиваний" data-en="Award-winning puzzle game with over 1M downloads">Award-winning puzzle game with over 1M downloads</p>
-                    <div class="project-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">Mobile</span>
-                        <span class="tag">Puzzle</span>
-                    </div>
-                </div>
-
-                <!-- Commercial Project 2 -->
-                <div class="project-card" onclick="openModal('commercial2')">
-                    <div class="project-preview">🏎️</div>
-                    <h3 class="project-title" data-ru="Гоночный Симулятор" data-en="Racing Simulator">Racing Simulator</h3>
-                    <p class="project-description" data-ru="Реалистичная гоночная игра с продвинутым физическим движком" data-en="Realistic racing game with advanced physics engine">Realistic racing game with advanced physics engine</p>
-                    <div class="project-tags">
-                        <span class="tag">Unreal Engine</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">Racing</span>
-                    </div>
-                </div>
+            <div class="projects-grid" id="commercialProjects">
+                <!-- Projects will be loaded dynamically -->
             </div>
         </section>
     </main>
@@ -420,6 +364,109 @@
     </div>
 
     <script>
+        // Projects configuration
+        const projectsConfig = {
+            personal: [
+                {
+                    id: 'project1',
+                    icon: '🎮',
+                    title: { ru: 'Эпическая RPG Приключение', en: 'Epic Adventure RPG' },
+                    description: {
+                        ru: 'Фэнтезийная RPG с глубоким сюжетом и захватывающим геймплеем',
+                        en: 'A fantasy RPG with deep storyline and immersive gameplay mechanics'
+                    },
+                    tags: ['Unity', 'C#', 'RPG'],
+                    detailedDescription: {
+                        ru: 'Полноценная RPG с открытым миром, включающая в себя систему квестов, прокачки персонажей, крафтинга и боевую систему в реальном времени. Игра создана на Unity с использованием современных технологий рендеринга.',
+                        en: 'A full-featured open-world RPG featuring quest system, character progression, crafting, and real-time combat. Built with Unity using modern rendering technologies.'
+                    },
+                    media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00ff88,#00c8ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🎮</div>',
+                    links: [
+                        { text: { ru: 'Играть', en: 'Play' }, url: '#' },
+                        { text: { ru: 'Код на GitHub', en: 'GitHub Code' }, url: '#' }
+                    ]
+                },
+                {
+                    id: 'project2',
+                    icon: '🚀',
+                    title: { ru: 'Космический Шутер', en: 'Space Shooter' },
+                    description: {
+                        ru: 'Динамичные космические бои с потрясающими визуальными эффектами',
+                        en: 'Fast-paced space combat with stunning visual effects'
+                    },
+                    tags: ['Unreal Engine', 'Blueprint', 'Action'],
+                    detailedDescription: {
+                        ru: 'Динамичный космический шутер с процедурно генерируемыми уровнями, системой улучшений кораблей и многопользовательским режимом. Реализован на Unreal Engine с использованием Blueprint и C++.',
+                        en: 'Dynamic space shooter with procedurally generated levels, ship upgrade system, and multiplayer mode. Built with Unreal Engine using Blueprint and C++.'
+                    },
+                    media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00c8ff,#0066ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🚀</div>',
+                    links: [
+                        { text: { ru: 'Скачать', en: 'Download' }, url: '#' },
+                        { text: { ru: 'Трейлер', en: 'Trailer' }, url: '#' }
+                    ]
+                },
+                {
+                    id: 'project3',
+                    icon: '🏰',
+                    title: { ru: 'Средневековая Стратегия', en: 'Medieval Strategy' },
+                    description: {
+                        ru: 'Строй королевство и завоевывай врагов в этой тактической стратегии',
+                        en: 'Build your kingdom and conquer enemies in this tactical strategy game'
+                    },
+                    tags: ['Godot', 'GDScript', 'Strategy'],
+                    detailedDescription: {
+                        ru: 'Пошаговая стратегия в средневековом сеттинге с элементами градостроительства и дипломатии. Создана на Godot Engine с акцентом на глубокий геймплей и красивую пиксельную графику.',
+                        en: 'Turn-based medieval strategy with city building and diplomacy elements. Created with Godot Engine focusing on deep gameplay and beautiful pixel art.'
+                    },
+                    media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#ff8800,#ffaa00);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏰</div>',
+                    links: [
+                        { text: { ru: 'Steam', en: 'Steam' }, url: '#' },
+                        { text: { ru: 'Дизайн документ', en: 'Design Document' }, url: '#' }
+                    ]
+                }
+            ],
+            commercial: [
+                {
+                    id: 'commercial1',
+                    icon: '💼',
+                    title: { ru: 'Мобильная Головоломка', en: 'Mobile Puzzle Game' },
+                    description: {
+                        ru: 'Награжденная головоломка с более чем 1 млн скачиваний',
+                        en: 'Award-winning puzzle game with over 1M downloads'
+                    },
+                    tags: ['Unity', 'Mobile', 'Puzzle'],
+                    detailedDescription: {
+                        ru: 'Коммерческий проект для мобильных платформ с более чем 1 миллионом скачиваний. Включает систему монетизации, аналитику и социальные функции. Разработка велась в команде из 5 человек.',
+                        en: 'Commercial mobile project with over 1 million downloads. Features monetization system, analytics, and social features. Developed by a team of 5 people.'
+                    },
+                    media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#ff0088,#ff00ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">💼</div>',
+                    links: [
+                        { text: { ru: 'App Store', en: 'App Store' }, url: '#' },
+                        { text: { ru: 'Google Play', en: 'Google Play' }, url: '#' }
+                    ]
+                },
+                {
+                    id: 'commercial2',
+                    icon: '🏎️',
+                    title: { ru: 'Гоночный Симулятор', en: 'Racing Simulator' },
+                    description: {
+                        ru: 'Реалистичная гоночная игра с продвинутым физическим движком',
+                        en: 'Realistic racing game with advanced physics engine'
+                    },
+                    tags: ['Unreal Engine', 'C++', 'Racing'],
+                    detailedDescription: {
+                        ru: 'Реалистичный автосимулятор с продвинутой физикой автомобилей, системой повреждений и поддержкой VR. Проект выполнен для крупной игровой студии с использованием Unreal Engine 5.',
+                        en: 'Realistic racing simulator with advanced car physics, damage system, and VR support. Project completed for a major game studio using Unreal Engine 5.'
+                    },
+                    media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00ffff,#0088ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏎️</div>',
+                    links: [
+                        { text: { ru: 'Трейлер', en: 'Trailer' }, url: '#' },
+                        { text: { ru: 'Пресс-кит', en: 'Press Kit' }, url: '#' }
+                    ]
+                }
+            ]
+        };
+
         // Language system - set English as default
         let currentLang = 'en';
 
@@ -433,12 +480,18 @@
                 el.textContent = text;
             });
 
+            // Reload projects with new language
+            loadProjects();
+
             // Update modal if it's open
             const modal = document.getElementById('modal');
             if (modal.style.display === 'block') {
                 const activeProjectId = modal.getAttribute('data-active-project');
-                if (activeProjectId && projectData[activeProjectId]) {
-                    updateModalContent(activeProjectId);
+                if (activeProjectId) {
+                    const project = findProjectById(activeProjectId);
+                    if (project) {
+                        updateModalContent(project);
+                    }
                 }
             }
         }
@@ -473,78 +526,52 @@
                     switchSection(section);
                 });
             });
+            
+            // Load projects on page load
+            loadProjects();
         });
 
-        // Modal system
-        const projectData = {
-            project1: {
-                title: { ru: 'Эпическая RPG Приключение', en: 'Epic Adventure RPG' },
-                description: {
-                    ru: 'Полноценная RPG с открытым миром, включающая в себя систему квестов, прокачки персонажей, крафтинга и боевую систему в реальном времени. Игра создана на Unity с использованием современных технологий рендеринга.',
-                    en: 'A full-featured open-world RPG featuring quest system, character progression, crafting, and real-time combat. Built with Unity using modern rendering technologies.'
-                },
-                media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00ff88,#00c8ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🎮</div>',
-                links: [
-                    { text: { ru: 'Играть', en: 'Play' }, url: '#' },
-                    { text: { ru: 'Код на GitHub', en: 'GitHub Code' }, url: '#' }
-                ]
-            },
-            project2: {
-                title: { ru: 'Космический Шутер', en: 'Space Shooter' },
-                description: {
-                    ru: 'Динамичный космический шутер с процедурно генерируемыми уровнями, системой улучшений кораблей и многопользовательским режимом. Реализован на Unreal Engine с использованием Blueprint и C++.',
-                    en: 'Dynamic space shooter with procedurally generated levels, ship upgrade system, and multiplayer mode. Built with Unreal Engine using Blueprint and C++.'
-                },
-                media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00c8ff,#0066ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🚀</div>',
-                links: [
-                    { text: { ru: 'Скачать', en: 'Download' }, url: '#' },
-                    { text: { ru: 'Трейлер', en: 'Trailer' }, url: '#' }
-                ]
-            },
-            project3: {
-                title: { ru: 'Средневековая Стратегия', en: 'Medieval Strategy' },
-                description: {
-                    ru: 'Пошаговая стратегия в средневековом сеттинге с элементами градостроительства и дипломатии. Создана на Godot Engine с акцентом на глубокий геймплей и красивую пиксельную графику.',
-                    en: 'Turn-based medieval strategy with city building and diplomacy elements. Created with Godot Engine focusing on deep gameplay and beautiful pixel art.'
-                },
-                media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#ff8800,#ffaa00);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏰</div>',
-                links: [
-                    { text: { ru: 'Steam', en: 'Steam' }, url: '#' },
-                    { text: { ru: 'Дизайн документ', en: 'Design Document' }, url: '#' }
-                ]
-            },
-            commercial1: {
-                title: { ru: 'Мобильная Головоломка', en: 'Mobile Puzzle Game' },
-                description: {
-                    ru: 'Коммерческий проект для мобильных платформ с более чем 1 миллионом скачиваний. Включает систему монетизации, аналитику и социальные функции. Разработка велась в команде из 5 человек.',
-                    en: 'Commercial mobile project with over 1 million downloads. Features monetization system, analytics, and social features. Developed by a team of 5 people.'
-                },
-                media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#ff0088,#ff00ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">💼</div>',
-                links: [
-                    { text: { ru: 'App Store', en: 'App Store' }, url: '#' },
-                    { text: { ru: 'Google Play', en: 'Google Play' }, url: '#' }
-                ]
-            },
-            commercial2: {
-                title: { ru: 'Гоночный Симулятор', en: 'Racing Simulator' },
-                description: {
-                    ru: 'Реалистичный автосимулятор с продвинутой физикой автомобилей, системой повреждений и поддержкой VR. Проект выполнен для крупной игровой студии с использованием Unreal Engine 5.',
-                    en: 'Realistic racing simulator with advanced car physics, damage system, and VR support. Project completed for a major game studio using Unreal Engine 5.'
-                },
-                media: '<div style="width:100%;height:300px;background:linear-gradient(45deg,#00ffff,#0088ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏎️</div>',
-                links: [
-                    { text: { ru: 'Трейлер', en: 'Trailer' }, url: '#' },
-                    { text: { ru: 'Пресс-кит', en: 'Press Kit' }, url: '#' }
-                ]
-            }
-        };
+        // Function to create project card HTML
+        function createProjectCard(project) {
+            return `
+                <div class="project-card" onclick="openModal('${project.id}')">
+                    <div class="project-preview">${project.icon}</div>
+                    <h3 class="project-title">${project.title[currentLang]}</h3>
+                    <p class="project-description">${project.description[currentLang]}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
 
-        function updateModalContent(projectId) {
-            const project = projectData[projectId];
+        // Function to load projects from config
+        function loadProjects() {
+            // Load personal projects
+            const personalContainer = document.getElementById('personalProjects');
+            personalContainer.innerHTML = projectsConfig.personal
+                .map(project => createProjectCard(project))
+                .join('');
+
+            // Load commercial projects
+            const commercialContainer = document.getElementById('commercialProjects');
+            commercialContainer.innerHTML = projectsConfig.commercial
+                .map(project => createProjectCard(project))
+                .join('');
+        }
+
+        // Function to find project by ID
+        function findProjectById(projectId) {
+            const allProjects = [...projectsConfig.personal, ...projectsConfig.commercial];
+            return allProjects.find(project => project.id === projectId);
+        }
+
+        // Modal system - updated to work with config
+        function updateModalContent(project) {
             if (!project) return;
 
             document.getElementById('modalTitle').textContent = project.title[currentLang];
-            document.getElementById('modalDescription').textContent = project.description[currentLang];
+            document.getElementById('modalDescription').textContent = project.detailedDescription[currentLang];
             document.getElementById('modalMedia').innerHTML = project.media;
 
             const linksContainer = document.getElementById('modalLinks');
@@ -560,9 +587,12 @@
         }
 
         function openModal(projectId) {
+            const project = findProjectById(projectId);
+            if (!project) return;
+
             const modal = document.getElementById('modal');
             modal.setAttribute('data-active-project', projectId);
-            updateModalContent(projectId);
+            updateModalContent(project);
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
