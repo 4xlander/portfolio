@@ -19,6 +19,14 @@
             overflow-x: hidden;
         }
 
+        .bg-mist {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, #124e4e 0%, #0a1c1e 80%);
+            opacity: 0.9;
+            z-index: -1;
+        }
+
         /* Background particles */
         .bg-particles {
             position: fixed;
@@ -306,6 +314,7 @@
 </head>
 <body>
     <!-- Background particles -->
+    <div class="bg-mist"></div>
     <div class="bg-particles" id="particles"></div>
 
     <!-- Header -->
