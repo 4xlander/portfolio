@@ -15,6 +15,7 @@
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     margin: 2% auto;
     padding: 2rem;
+    padding-top: 4rem;
     width: 90%;
     max-width: 800px;
     border-radius: 20px;
@@ -34,6 +35,7 @@
     font-size: 2rem;
     cursor: pointer;
     transition: color 0.3s ease;
+    z-index: 10;
 }
 
 .modal-close:hover {
@@ -130,5 +132,18 @@
         width: 95%;
         margin: 5% auto;
         padding: 1.5rem;
+        padding-top: 3.5rem;
+    }
+
+    .modal-close {
+        top: 0.8rem;
+        right: 1rem;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding-top: 3rem;
     }
 }
