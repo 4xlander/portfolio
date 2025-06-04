@@ -177,10 +177,73 @@
         }
 
         .project-preview {
-            font-size: 3rem;
-            text-align: center;
+            width: 100%;
+            height: 200px;
             margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 255, 0.1) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-image.loaded {
+            opacity: 1;
+        }
+
+        .project-image.error {
+            opacity: 0;
+        }
+
+        .project-card:hover .project-image.loaded {
+            transform: scale(1.05);
+        }
+
+        .image-fallback {
+            font-size: 3rem;
+            color: rgba(0, 255, 136, 0.6);
             filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-card:hover .image-fallback {
+            transform: scale(1.1);
+        }
+
+        /* Hide fallback when image is loaded */
+        .project-preview:has(.project-image.loaded) .image-fallback {
+            opacity: 0;
+        }
+
+        .image-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(0, 255, 136, 0.4);
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        /* Hide loading when image is loaded or error */
+        .project-preview:has(.project-image.loaded) .image-loading,
+        .project-preview:has(.project-image.error) .image-loading {
+            opacity: 0;
         }
 
         .project-title {
@@ -310,6 +373,18 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Fallback for browsers that don't support :has() */
+        @supports not selector(:has(*)) {
+            .project-image.loaded ~ .image-fallback,
+            .project-image.loaded ~ .image-loading {
+                opacity: 0;
+            }
+            
+            .project-image.error ~ .image-loading {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -370,6 +445,7 @@
                 {
                     id: 'project1',
                     icon: '🎮',
+                    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop&crop=center',
                     title: { ru: 'Эпическая RPG Приключение', en: 'Epic Adventure RPG' },
                     description: {
                         ru: 'Фэнтезийная RPG с глубоким сюжетом и захватывающим геймплеем',
@@ -389,6 +465,7 @@
                 {
                     id: 'project2',
                     icon: '🚀',
+                    image: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=600&h=400&fit=crop&crop=center',
                     title: { ru: 'Космический Шутер', en: 'Space Shooter' },
                     description: {
                         ru: 'Динамичные космические бои с потрясающими визуальными эффектами',
@@ -408,6 +485,7 @@
                 {
                     id: 'project3',
                     icon: '🏰',
+                    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop&crop=center',
                     title: { ru: 'Средневековая Стратегия', en: 'Medieval Strategy' },
                     description: {
                         ru: 'Строй королевство и завоевывай врагов в этой тактической стратегии',
@@ -429,6 +507,7 @@
                 {
                     id: 'commercial1',
                     icon: '💼',
+                    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=600&fit=crop&crop=center',
                     title: { ru: 'Мобильная Головоломка', en: 'Mobile Puzzle Game' },
                     description: {
                         ru: 'Награжденная головоломка с более чем 1 млн скачиваний',
@@ -448,6 +527,7 @@
                 {
                     id: 'commercial2',
                     icon: '🏎️',
+                    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=400&fit=crop&crop=center',
                     title: { ru: 'Гоночный Симулятор', en: 'Racing Simulator' },
                     description: {
                         ru: 'Реалистичная гоночная игра с продвинутым физическим движком',
@@ -535,7 +615,18 @@
         function createProjectCard(project) {
             return `
                 <div class="project-card" onclick="openModal('${project.id}')">
-                    <div class="project-preview">${project.icon}</div>
+                    <div class="project-preview">
+                        <img 
+                            class="project-image" 
+                            data-src="${project.image || ''}" 
+                            alt="${project.title[currentLang]}"
+                            loading="lazy"
+                            onload="this.classList.add('loaded'); handleImageLoad(this)"
+                            onerror="this.classList.add('error'); handleImageError(this)"
+                        />
+                        <div class="image-fallback">${project.icon}</div>
+                        <div class="image-loading">Loading...</div>
+                    </div>
                     <h3 class="project-title">${project.title[currentLang]}</h3>
                     <p class="project-description">${project.description[currentLang]}</p>
                     <div class="project-tags">
@@ -543,6 +634,25 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Handle image load/error events
+        function handleImageLoad(img) {
+            const preview = img.closest('.project-preview');
+            if (preview) {
+                const fallback = preview.querySelector('.image-fallback');
+                const loading = preview.querySelector('.image-loading');
+                if (fallback) fallback.style.opacity = '0';
+                if (loading) loading.style.opacity = '0';
+            }
+        }
+
+        function handleImageError(img) {
+            const preview = img.closest('.project-preview');
+            if (preview) {
+                const loading = preview.querySelector('.image-loading');
+                if (loading) loading.style.opacity = '0';
+            }
         }
 
         // Function to load projects from config
@@ -558,6 +668,34 @@
             commercialContainer.innerHTML = projectsConfig.commercial
                 .map(project => createProjectCard(project))
                 .join('');
+
+            // Initialize lazy loading for images
+            initializeLazyLoading();
+        }
+
+        // Lazy loading implementation
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('.project-image[data-src]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.dataset.src;
+                        
+                        if (src) {
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                        }
+                        
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => {
+                imageObserver.observe(img);
+            });
         }
 
         // Function to find project by ID
