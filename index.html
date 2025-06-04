@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameDev Portfolio</title>
+
+    <link rel="stylesheet" href="css/modal.css">
+
     <style>
         * {
             margin: 0;
@@ -298,83 +301,6 @@
             border: 1px solid rgba(0, 200, 255, 0.3);
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            margin: 2% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: #00ff88;
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #00ff88;
-            padding-right: 3rem;
-        }
-
-        .modal-description {
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .modal-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .modal-link {
-            background: #00ff88;
-            color: #0c0c0c;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .modal-link:hover {
-            background: #00c8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
@@ -390,12 +316,6 @@
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-                padding: 1.5rem;
             }
         }
 
@@ -454,8 +374,8 @@
     <div id="modal" class="modal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h2 class="modal-title" id="modalTitle">Project Title</h2>
             <div id="modalMedia"></div>
+            <h2 class="modal-title" id="modalTitle">Project Title</h2>
             <p class="modal-description" id="modalDescription">Detailed project description goes here...</p>
             <div class="modal-links" id="modalLinks"></div>
         </div>
@@ -465,6 +385,7 @@
     <script src="js/language.js"></script>
     <script src="js/switch-section.js"></script>
     <script src="js/particles.js"></script>
+    <script src="js/modal.js"></script>
     <script>
 
         // Function to create project card HTML
@@ -553,59 +474,7 @@
             });
         }
 
-        // Function to find project by ID
-        function findProjectById(projectId) {
-            const allProjects = [...projectsConfig.personal, ...projectsConfig.commercial];
-            return allProjects.find(project => project.id === projectId);
-        }
-
-        // Modal system - updated to work with config
-        function updateModalContent(project) {
-            if (!project) return;
-
-            document.getElementById('modalTitle').textContent = project.title[currentLang];
-            document.getElementById('modalDescription').textContent = project.detailedDescription[currentLang];
-            document.getElementById('modalMedia').innerHTML = project.media;
-
-            const linksContainer = document.getElementById('modalLinks');
-            linksContainer.innerHTML = '';
-            project.links.forEach(link => {
-                const linkEl = document.createElement('a');
-                linkEl.href = link.url;
-                linkEl.className = 'modal-link';
-                linkEl.textContent = link.text[currentLang];
-                linkEl.target = '_blank';
-                linksContainer.appendChild(linkEl);
-            });
-        }
-
-        function openModal(projectId) {
-            const project = findProjectById(projectId);
-            if (!project) return;
-
-            const modal = document.getElementById('modal');
-            modal.setAttribute('data-active-project', projectId);
-            updateModalContent(project);
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(event) {
-            if (event && event.target !== event.currentTarget) return;
-            const modal = document.getElementById('modal');
-            modal.style.display = 'none';
-            modal.removeAttribute('data-active-project');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Initialize
+        // Load projects on page load
         document.addEventListener('DOMContentLoaded', function () {
             loadProjects();
         });
