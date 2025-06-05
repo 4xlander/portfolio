@@ -10,7 +10,18 @@ function updateModalContent(project) {
 
     document.getElementById('modalTitle').textContent = project.title[currentLang];
     document.getElementById('modalDescription').textContent = project.detailedDescription[currentLang];
-    document.getElementById('modalMedia').innerHTML = renderMedia(project.media);
+    
+    const mediaContainer = document.getElementById('modalMedia');
+    const mediaContent = renderMedia(project.media);
+    
+    // Hide media container if no content returned
+    if (!mediaContent || mediaContent.trim() === '') {
+        mediaContainer.style.display = 'none';
+        mediaContainer.innerHTML = '';
+    } else {
+        mediaContainer.style.display = 'block';
+        mediaContainer.innerHTML = mediaContent;
+    }
 
     const linksContainer = document.getElementById('modalLinks');
     linksContainer.innerHTML = '';

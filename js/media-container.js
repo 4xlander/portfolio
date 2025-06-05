@@ -1,7 +1,8 @@
 // Render media content based on configuration
 function renderMedia(mediaConfig) {
     if (!mediaConfig) {
-        return createFallbackContainer('No media available', '🎮');
+        console.log('No media configuration provided');
+        return ''; // Return empty string to hide container
     }
 
     const container = document.createElement('div');
@@ -26,18 +27,13 @@ function renderMedia(mediaConfig) {
                 break;
 
             default:
-                container.innerHTML = createFallbackContainer(
-                    'Unsupported media type',
-                    mediaConfig.fallback || '🎮'
-                );
+                console.error('Unsupported media type:', mediaConfig.type);
+                return ''; // Return empty string to hide container
         }
 
     } catch (error) {
         console.error('Error rendering media:', error);
-        container.innerHTML = createFallbackContainer(
-            'Media loading failed',
-            mediaConfig.fallback || '❌'
-        );
+        return ''; // Return empty string to hide container
     }
 
     return container.outerHTML;
@@ -78,9 +74,10 @@ function createFallbackContainer(message, icon) {
 }
 
 function handleImageError(imgElement, fallbackIcon) {
-    const container = imgElement.parentElement;
+    const container = imgElement.closest('.media-container');
     if (container) {
-        container.innerHTML = createFallbackContainer('Image failed to load', fallbackIcon);
+        console.error('Image failed to load:', imgElement.src);
+        container.style.display = 'none'; // Hide container on image error
     }
 }
 
@@ -98,7 +95,8 @@ function createImageContent(mediaConfig) {
 function createYouTubeContent(mediaConfig) {
     const videoId = extractYouTubeId(mediaConfig.url);
     if (!videoId) {
-        return createFallbackContainer('Invalid YouTube URL', '📺');
+        console.error('Invalid YouTube URL:', mediaConfig.url);
+        return ''; // Return empty string to hide container
     }
 
     return `
@@ -107,14 +105,15 @@ function createYouTubeContent(mediaConfig) {
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-                loading="lazy"></iframe>
+                loading="lazy"
+                onerror="handleIframeError(this)"></iframe>
         <div class="media-loading">Loading YouTube video...</div>
     `;
 }
 
 function createVideoContent(mediaConfig) {
     return `
-        <video class="media-content" controls playsinline>
+        <video class="media-content" controls playsinline onerror="handleVideoError(this)">
             <source src="${mediaConfig.url}" type="${mediaConfig.mimeType || 'video/mp4'}">
             Your browser does not support HTML5 video.
         </video>
@@ -128,9 +127,27 @@ function createIframeContent(mediaConfig) {
                 class="media-content"
                 frameborder="0"
                 loading="lazy"
-                sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"></iframe>
+                sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"
+                onerror="handleIframeError(this)"></iframe>
         <div class="media-loading">Loading content...</div>
     `;
+}
+
+// Error handlers for different media types
+function handleVideoError(videoElement) {
+    const container = videoElement.closest('.media-container');
+    if (container) {
+        console.error('Video failed to load:', videoElement.querySelector('source')?.src);
+        container.style.display = 'none';
+    }
+}
+
+function handleIframeError(iframeElement) {
+    const container = iframeElement.closest('.media-container');
+    if (container) {
+        console.error('Iframe failed to load:', iframeElement.src);
+        container.style.display = 'none';
+    }
 }
 
 // Utility
