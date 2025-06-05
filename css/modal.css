@@ -9,11 +9,13 @@
     background: rgba(0, 0, 0, 0.8);
     z-index: 2000;
     backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    margin: 2% auto;
+    margin: 0;
     padding: 2rem;
     padding-top: 4rem;
     width: 90%;

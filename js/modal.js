@@ -31,7 +31,7 @@ function openModal(projectId) {
     const modal = document.getElementById('modal');
     modal.setAttribute('data-active-project', projectId);
     updateModalContent(project);
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
