@@ -31,6 +31,7 @@ function renderMedia(mediaConfig) {
                     mediaConfig.fallback || '🎮'
                 );
         }
+
     } catch (error) {
         console.error('Error rendering media:', error);
         container.innerHTML = createFallbackContainer(
@@ -42,6 +43,31 @@ function renderMedia(mediaConfig) {
     return container.outerHTML;
 }
 
+function adjustMediaLayout(media) {
+    const container = media.closest('.media-container');
+    if (!container) return;
+
+    // console.log('Adjusting media layout for:', media);
+    
+    // YouTube, iframe
+    if (media.tagName === 'IFRAME') {
+        container.classList.add('horizontal');
+        return;
+    }
+
+    // Aspect ratio for video and images
+    const width = media.naturalWidth || media.videoWidth || media.offsetWidth;
+    const height = media.naturalHeight || media.videoHeight || media.offsetHeight;
+
+    if (width && height && height > 0) {
+        if (height > width) {
+            container.classList.add('vertical');
+        } else if (height > 0) {
+            container.aspectRatio = `${width}/${height}`;
+        }
+    }
+}
+
 function createFallbackContainer(message, icon) {
     return `
         <div class="media-fallback">
@@ -49,6 +75,13 @@ function createFallbackContainer(message, icon) {
             <div class="fallback-message">${message}</div>
         </div>
     `;
+}
+
+function handleImageError(imgElement, fallbackIcon) {
+    const container = imgElement.parentElement;
+    if (container) {
+        container.innerHTML = createFallbackContainer('Image failed to load', fallbackIcon);
+    }
 }
 
 function createImageContent(mediaConfig) {
@@ -111,9 +144,29 @@ function extractYouTubeId(url) {
     return (match && match[2].length === 11) ? match[2] : null;
 }
 
-function handleImageError(imgElement, fallbackIcon) {
-    const container = imgElement.parentElement;
-    if (container) {
-        container.innerHTML = createFallbackContainer('Image failed to load', fallbackIcon);
-    }
-}
+// Hide loading indicator
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle image loading
+    document.addEventListener('load', function (e) {
+        adjustMediaLayout(e.target);
+        if (e.target.tagName === 'IMG' && e.target.classList.contains('media-content')) {
+            const loadingIndicator = e.target.parentElement.querySelector('.media-loading');
+            if (loadingIndicator) {
+                loadingIndicator.style.opacity = '0';
+            }
+        }
+    }, true);
+
+    // Handle iframe loading
+    document.addEventListener('load', function (e) {
+        if (e.target.tagName === 'IFRAME' && e.target.classList.contains('media-content')) {
+            adjustMediaLayout(e.target);
+            const loadingIndicator = e.target.parentElement.querySelector('.media-loading');
+            if (loadingIndicator) {
+                setTimeout(() => {
+                    loadingIndicator.style.opacity = '0';
+                }, 1000);
+            }
+        }
+    }, true);
+});
