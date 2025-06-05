@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameDev Portfolio</title>
 
+    <link rel="stylesheet" href="css/project-card.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/media-container.css">
     <style>
@@ -185,122 +186,6 @@
             justify-items: center;
         }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            border-radius: 15px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .project-card:hover {
-            background: rgba(0, 255, 136, 0.1);
-            border-color: #00ff88;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-        }
-
-        .project-preview {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 255, 0.1) 100%);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .project-image.loaded {
-            opacity: 1;
-        }
-
-        .project-image.error {
-            opacity: 0;
-        }
-
-        .project-card:hover .project-image.loaded {
-            transform: scale(1.05);
-        }
-
-        .image-fallback {
-            font-size: 3rem;
-            color: rgba(0, 255, 136, 0.6);
-            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-card:hover .image-fallback {
-            transform: scale(1.1);
-        }
-
-        /* Hide fallback when image is loaded */
-        .project-preview:has(.project-image.loaded) .image-fallback {
-            opacity: 0;
-        }
-
-        .image-loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(0, 255, 136, 0.4);
-            font-size: 0.9rem;
-            z-index: 1;
-        }
-
-        /* Hide loading when image is loaded or error */
-        .project-preview:has(.project-image.loaded) .image-loading,
-        .project-preview:has(.project-image.error) .image-loading {
-            opacity: 0;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #00ff88;
-        }
-
-        .project-description {
-            opacity: 0.8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: rgba(0, 200, 255, 0.2);
-            color: #00c8ff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 200, 255, 0.3);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
@@ -316,19 +201,6 @@
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
-            }
-        }
-
-        /* Fallback for browsers that don't support :has() */
-        @supports not selector(:has(*)) {
-
-            .project-image.loaded~.image-fallback,
-            .project-image.loaded~.image-loading {
-                opacity: 0;
-            }
-
-            .project-image.error~.image-loading {
-                opacity: 0;
             }
         }
     </style>
@@ -381,105 +253,13 @@
         </div>
     </div>
 
-    <script src="js/projects-config.js"></script>
     <script src="js/language.js"></script>
     <script src="js/switch-section.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/media-container.js"></script>
     <script src="js/modal.js"></script>
-    <script>
-
-        // Function to create project card HTML
-        function createProjectCard(project) {
-            return `
-                <div class="project-card" onclick="openModal('${project.id}')">
-                    <div class="project-preview">
-                        <img 
-                            class="project-image" 
-                            data-src="${project.image || ''}" 
-                            alt="${project.title[currentLang]}"
-                            loading="lazy"
-                            onload="this.classList.add('loaded'); handleImageLoad(this)"
-                            onerror="this.classList.add('error'); handleImageError(this)"
-                        />
-                        <div class="image-fallback">${project.icon}</div>
-                        <div class="image-loading">Loading...</div>
-                    </div>
-                    <h3 class="project-title">${project.title[currentLang]}</h3>
-                    <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Handle image load/error events
-        function handleImageLoad(img) {
-            const preview = img.closest('.project-preview');
-            if (preview) {
-                const fallback = preview.querySelector('.image-fallback');
-                const loading = preview.querySelector('.image-loading');
-                if (fallback) fallback.style.opacity = '0';
-                if (loading) loading.style.opacity = '0';
-            }
-        }
-
-        function handleImageError(img) {
-            const preview = img.closest('.project-preview');
-            if (preview) {
-                const loading = preview.querySelector('.image-loading');
-                if (loading) loading.style.opacity = '0';
-            }
-        }
-
-        // Function to load projects from config
-        function loadProjects() {
-            // Load personal projects
-            const personalContainer = document.getElementById('personalProjects');
-            personalContainer.innerHTML = projectsConfig.personal
-                .map(project => createProjectCard(project))
-                .join('');
-
-            // Load commercial projects
-            const commercialContainer = document.getElementById('commercialProjects');
-            commercialContainer.innerHTML = projectsConfig.commercial
-                .map(project => createProjectCard(project))
-                .join('');
-
-            // Initialize lazy loading for images
-            initializeLazyLoading();
-        }
-
-        // Lazy loading implementation
-        function initializeLazyLoading() {
-            const images = document.querySelectorAll('.project-image[data-src]');
-
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        const src = img.dataset.src;
-
-                        if (src) {
-                            img.src = src;
-                            img.removeAttribute('data-src');
-                        }
-
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            images.forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Load projects on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            loadProjects();
-        });
-    </script>
+    <script src="js/projects.js"></script>
+    <script src="js/projects-config.js"></script>
 </body>
 
 </html>

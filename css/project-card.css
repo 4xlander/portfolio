@@ -1,0 +1,129 @@
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 15px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 350px;
+}
+
+.project-card:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.project-preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 200, 255, 0.1) 100%);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project-image.loaded {
+    opacity: 1;
+}
+
+.project-image.error {
+    opacity: 0;
+}
+
+.project-card:hover .project-image.loaded {
+    transform: scale(1.05);
+}
+
+.image-fallback {
+    font-size: 3rem;
+    color: rgba(0, 255, 136, 0.6);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.project-card:hover .image-fallback {
+    transform: scale(1.1);
+}
+
+/* Hide fallback when image is loaded */
+.project-preview:has(.project-image.loaded) .image-fallback {
+    opacity: 0;
+}
+
+.image-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 255, 136, 0.4);
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+/* Hide loading when image is loaded or error */
+.project-preview:has(.project-image.loaded) .image-loading,
+.project-preview:has(.project-image.error) .image-loading {
+    opacity: 0;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00ff88;
+}
+
+.project-description {
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: rgba(0, 200, 255, 0.2);
+    color: #00c8ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not selector(:has(*)) {
+
+    .project-image.loaded~.image-fallback,
+    .project-image.loaded~.image-loading {
+        opacity: 0;
+    }
+
+    .project-image.error~.image-loading {
+        opacity: 0;
+    }
+}
