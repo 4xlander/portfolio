@@ -53,6 +53,27 @@
     font-size: 1.2rem;
 }
 
+.modal-description .tasks-list ul {
+    list-style-type: none;
+    padding-left: 1.8rem;
+    margin: 0.5rem 0;
+    border-left: 2px solid rgba(0, 200, 255, 0.2);
+}
+
+.modal-description .tasks-list ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-description .tasks-list ul li:before {
+    content: "→";
+    color: rgba(0, 200, 255, 0.6);
+    position: absolute;
+    left: -0.5rem;
+    font-size: 1rem;
+}
+
 .modal-description p {
     margin-bottom: 1rem;
     line-height: 1.7;
