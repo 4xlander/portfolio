@@ -1,3 +1,4 @@
+/* Modal window styles */
 .modal {
     display: none;
     position: fixed;
@@ -23,6 +24,7 @@
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
+    scrollbar-gutter: stable;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -36,6 +38,7 @@
 .modal-content::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    margin: 1.5rem 0;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
@@ -82,12 +85,6 @@
     background: linear-gradient(90deg, rgba(0, 255, 136, 0.3), transparent);
 }
 
-.modal-description {
-    line-height: 1.7;
-    opacity: 0.9;
-    margin-top: -0.5rem;
-}
-
 .modal-links {
     display: flex;
     gap: 1rem;
@@ -130,15 +127,15 @@
     .modal-content {
         padding: 1.2rem;
     }
-    
+
     .modal-title {
         font-size: 1.8rem;
     }
-    
+
     .modal-links {
         gap: 0.8rem;
     }
-    
+
     .modal-link {
         padding: 0.6rem 1.2rem;
     }
