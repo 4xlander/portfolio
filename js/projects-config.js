@@ -3,6 +3,25 @@ const projectsConfig = {
     personal: [],
     commercial: [
         {
+            id: 'tess',
+            icon: '💼',
+            image: 'projects/commercial/tess/cover.webp',
+            title: {
+                ru: 'Where\'s Tess',
+                en: 'Where\'s Tess'
+            },
+            tags: ['2D', 'Mobile', 'Novel'],
+            detailedDescription: {
+                ru: "<div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (в команде)</p><p><strong>Платформа:</strong> Android, iOS</p><p><strong>Технологии:</strong> Unity UI, Firebase SDK, AppLovin SDK, Amplitude SDK</p></div><h4>Описание:</h4><p>2D визуальная новелла для мобильных платформ.</p><p>Участвовал в разработке эпизодически и получил практический опыт мобильной разработки, а также работы с внешними сервисами: Firebase, внутриигровые покупки, реклама и аналитика.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Исправление ошибок</span></li><li><span>Обновление и настройка сторонних SDK (Firebase, AppLovin, Amplitude)</span></li><li><span>Интеграция сервисов внутриигровых покупок, рекламы и аналитики</span></li><li><span>Сборка билдов и загрузка в Google Play</span></li><li><span>Создание бандлов и загрузка в облачное хранилище</span></li></ul>",
+                en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (team member)</p><p><strong>Platform:</strong> Android, iOS</p><p><strong>Technologies:</strong> Unity UI, Firebase SDK, AppLovin SDK, Amplitude SDK</p></div><h4>Description:</h4><p>A 2D visual novel developed for mobile platforms.</p><p>I contributed to the project on an episodic basis, gaining hands-on experience in mobile development and integration of third-party services including Firebase, in-app purchases, advertising, and analytics.</p><h4>Responsibilities:</h4><ul class=\"tasks-list\"><li><span>Fixing bugs and resolving technical issues</span></li><li><span>Updating and configuring third-party SDKs (Firebase, AppLovin, Amplitude)</span></li><li><span>Integrating services for in-app purchases, ads, and analytics</span></li><li><span>Building releases and uploading them to Google Play</span></li><li><span>Creating asset bundles and uploading them to cloud storage</span></li></ul>"
+
+            },
+            links: [
+                { text: { ru: 'Google Play', en: 'Google Play' }, url: 'https://play.google.com/store/apps/details?id=com.leapgs.tess' }
+            ]
+        },
+
+        {
             id: 'cyberjustice-p',
             icon: '💼',
             image: 'projects/commercial/cyberjustice-p/cover.jpg',
