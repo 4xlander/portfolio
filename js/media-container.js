@@ -7,6 +7,7 @@ function renderMedia(mediaConfig) {
 
     const container = document.createElement('div');
     container.className = 'media-container';
+    container.setAttribute('data-media-type', mediaConfig.type);
 
     try {
         switch (mediaConfig.type) {
