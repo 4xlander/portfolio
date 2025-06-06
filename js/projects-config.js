@@ -1,47 +1,19 @@
 // Projects configuration
 const projectsConfig = {
-    personal: [
-        {
-            id: 'personal1',
-            icon: '🎮',
-            image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop&crop=center',
-            title: { ru: 'Эпическая RPG Приключение', en: 'Epic Adventure RPG' },
-            description: {
-                ru: 'Фэнтезийная RPG с глубоким сюжетом и захватывающим геймплеем',
-                en: 'A fantasy RPG with deep storyline and immersive gameplay mechanics'
-            },
-            tags: ['Unity', 'C#', 'RPG'],
-            detailedDescription: {
-                ru: 'Полноценная RPG с открытым миром, включающая в себя систему квестов, прокачки персонажей, крафтинга и боевую систему в реальном времени. Игра создана на Unity с использованием современных технологий рендеринга.',
-                en: 'A full-featured open-world RPG featuring quest system, character progression, crafting, and real-time combat. Built with Unity using modern rendering technologies.'
-            },
-            media: {
-                type: "image", // "youtube", "video", "iframe"
-                url: "https://example.com/image.jpg",
-            },
-            links: [
-                { text: { ru: 'Играть', en: 'Play' }, url: '#' },
-                { text: { ru: 'Код на GitHub', en: 'GitHub Code' }, url: '#' }
-            ]
-        }
-    ],
+    personal: [],
     commercial: [
         {
-            id: 'commercial1',
+            id: 'dark-lord',
             icon: '💼',
-            image: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2515030/header.jpg?t=1747307341',
+            image: 'projects/commercial/dark-lord/cover.jpg',
             title: {
                 ru: 'Dark Lord',
                 en: 'Dark Lord'
             },
-            tags: ['2D', 'PC', 'Card Game'],
+            tags: ['2D', 'PC', 'Card Game', 'Novel'],
             detailedDescription: {
-                ru: 'Коммерческий проект для мобильных платформ с более чем 1 миллионом скачиваний. Включает систему монетизации, аналитику и социальные функции. Разработка велась в команде из 5 человек.',
-                en: 'Commercial mobile project with over 1 million downloads. Features monetization system, analytics, and social features. Developed by a team of 5 people.'
-            },
-            media: {
-                type: "video",
-                url: "https://video.fastly.steamstatic.com/store_trailers/257046532/movie_max_vp9.webm?t=1723741288",
+                ru: "<h3>2D игра, сочетающая элементы нескольких жанров</h3><div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (в команде)</p><p><strong>Платформа:</strong> PC</p><p><strong>Технологии:</strong> Unity, C#, MVC, Unity UI, DOTween, Spine, Yarn Spinner, Addressables, Unity Gaming Services, Steam SDK, Xsolla SDK, Git</p></div><h4>Описание:</h4><p>Мой первый полноценный коммерческий проект, ставший отправной точкой в карьере разработчика игр.</p><p>Работая в составе команды, прошёл весь цикл разработки — от создания MVP до релизной версии.</p><p>За время проекта вырос с уровня trainee до middle, получив обширный практический опыт в разработке игр на Unity.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Создание пользовательских интерфейсов с использованием Unity UI (в большом количестве)</span></li><li><span>Реализация разнообразных игровых механик по ТЗ</span></li><li><span>Интеграция анимаций с использованием DOTween и встроенных инструментов Unity (Animation, Animator)</span></li><li><span>Интеграция Spine-анимаций</span></li><li><span>Управление загружаемым контентом с помощью Addressables</span></li><li><span>Использование ScriptableObject для конфигурирования игровых данных</span></li><li><span>Реализация механик визуальной новеллы с использованием Yarn Spinner</span></li><li><span>Интеграция игровых сервисов и платформ (Unity Gaming Services, Steam, Xsolla)</span></li><li><span>Асинхронное программирование (async/await, корутины)</span></li><li><span>Применение шаблонов проектирования (Синглтон, Сервис-локатор, Фабричный метод, Адаптер, Фасад, Обсервер, Медиатор, Стратегия)</span></li><li><span>Отладка и исправление ошибок</span></li><li><span>Сборка и загрузка билдов в Steam через Steamworks</span></li><li><span>Командная работа с использованием Git и архитектурного подхода MVC</span></li></ul>",
+                en: "<h3>2D game combining elements of multiple genres</h3><div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (team member)</p><p><strong>Platform:</strong> PC</p><p><strong>Technologies:</strong> Unity, C#, MVC, Unity UI, DOTween, Spine, Yarn Spinner, Addressables, Unity Gaming Services, Steam SDK, Xsolla SDK, Git</p></div><h4>Description:</h4><p>My first full-scale commercial project, which became the starting point of my career as a game developer.</p><p>As part of the team, I went through the entire development cycle — from creating the MVP to the release version.</p><p>During the project, I grew from a trainee to a middle developer, gaining extensive hands-on experience in Unity game development.</p><h4>My responsibilities:</h4><ul class=\"tasks-list\"><li><span>Creating user interfaces using Unity UI (in large quantity)</span></li><li><span>Implementing various gameplay mechanics based on technical specifications</span></li><li><span>Integrating animations using DOTween and Unity's built-in tools (Animation, Animator)</span></li><li><span>Integrating Spine animations</span></li><li><span>Managing downloadable content via Addressables</span></li><li><span>Using ScriptableObject to configure game data</span></li><li><span>Implementing visual novel mechanics with Yarn Spinner</span></li><li><span>Integrating game services and platforms (Unity Gaming Services, Steam, Xsolla)</span></li><li><span>Asynchronous programming (async/await, coroutines)</span></li><li><span>Applying design patterns (Singleton, Service Locator, Factory Method, Adapter, Facade, Observer, Mediator, Strategy)</span></li><li><span>Debugging and fixing issues</span></li><li><span>Building and uploading builds to Steam via Steamworks</span></li><li><span>Collaborating with the team using Git and the MVC architectural approach</span></li></ul>"
             },
             links: [
                 { text: { ru: 'Steam', en: 'Steam' }, url: 'https://store.steampowered.com/app/2515030/Dark_Lord/' }
