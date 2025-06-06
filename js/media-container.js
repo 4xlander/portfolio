@@ -114,24 +114,35 @@ function createYouTubeContent(mediaConfig) {
 
 function createVideoContent(mediaConfig) {
     return `
-        <video class="media-content" controls playsinline onerror="handleVideoError(this)">
-            <source src="${mediaConfig.url}" type="${mediaConfig.mimeType || 'video/mp4'}">
-            Your browser does not support HTML5 video.
-        </video>
-        <div class="media-loading">Loading video...</div>
+    <video class="media-content" controls playsinline onerror="handleVideoError(this)">
+    <source src="${mediaConfig.url}" type="${mediaConfig.mimeType || 'video/mp4'}">
+    Your browser does not support HTML5 video.
+    </video>
+    <div class="media-loading">Loading video...</div>
     `;
 }
 
 function createIframeContent(mediaConfig) {
     return `
-        <iframe src="${mediaConfig.url}"
-                class="media-content"
-                frameborder="0"
-                loading="lazy"
-                sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"
-                onerror="handleIframeError(this)"></iframe>
-        <div class="media-loading">Loading content...</div>
+    <iframe src="${mediaConfig.url}"
+    class="media-content"
+    frameborder="0"
+    loading="lazy"
+    sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"
+    onerror="handleIframeError(this)"></iframe>
+    <div class="media-loading">Loading content...</div>
     `;
+}
+
+// Utility
+function extractYouTubeId(url) {
+    if (!url) return null;
+
+    // Parse YouTube URL
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|shorts\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11) ? match[2] : null;
 }
 
 // Error handlers for different media types
@@ -149,17 +160,6 @@ function handleIframeError(iframeElement) {
         console.error('Iframe failed to load:', iframeElement.src);
         container.style.display = 'none';
     }
-}
-
-// Utility
-function extractYouTubeId(url) {
-    if (!url) return null;
-
-    // Parse YouTube URL
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-
-    return (match && match[2].length === 11) ? match[2] : null;
 }
 
 // Hide loading indicator
