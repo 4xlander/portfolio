@@ -45,7 +45,7 @@ function adjustMediaLayout(media) {
     if (!container) return;
 
     // console.log('Adjusting media layout for:', media);
-    
+
     // YouTube, iframe
     if (media.tagName === 'IFRAME') {
         container.classList.add('horizontal');
@@ -143,6 +143,18 @@ function extractYouTubeId(url) {
     const match = url.match(regExp);
 
     return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function stopAllMedia() {
+    // TODO: stop youtube videos gracefully
+
+    document.querySelectorAll('.media-container video').forEach(video => {
+        video.pause();
+    });
+
+    document.querySelectorAll('.media-container iframe').forEach(iframe => {
+        iframe.src = '';
+    });
 }
 
 // Error handlers for different media types

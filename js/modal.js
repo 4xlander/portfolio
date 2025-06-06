@@ -71,6 +71,8 @@ function openModal(projectId) {
 
 function closeModal(event) {
     if (event && event.target !== event.currentTarget) return;
+    stopAllMedia();
+
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
     modal.removeAttribute('data-active-project');
