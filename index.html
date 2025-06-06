@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/project-card.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/media-container.css">
+    <link rel="stylesheet" href="css/modal-description.css">
     <style>
         * {
             margin: 0;
@@ -195,10 +196,6 @@
     <div id="modal" class="modal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div id="modalMedia"></div>
-            <h2 class="modal-title" id="modalTitle">Project Title</h2>
-            <p class="modal-description" id="modalDescription">Detailed project description goes here...</p>
-            <div class="modal-links" id="modalLinks"></div>
         </div>
     </div>
 

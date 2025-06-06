@@ -8,31 +8,54 @@ function findProjectById(projectId) {
 function updateModalContent(project) {
     if (!project) return;
 
-    document.getElementById('modalTitle').textContent = project.title[currentLang];
-    document.getElementById('modalDescription').textContent = project.detailedDescription[currentLang];
-    
-    const mediaContainer = document.getElementById('modalMedia');
+    const modalContent = document.querySelector('.modal-content');
+
+    // Clear existing content (except close button)
+    const closeButton = document.querySelector('.modal-close');
+    modalContent.innerHTML = '';
+    modalContent.appendChild(closeButton);
+
+    // Create and append title
+    const titleElement = document.createElement('h2');
+    titleElement.className = 'modal-title';
+    titleElement.id = 'modalTitle';
+    titleElement.textContent = project.title[currentLang];
+    modalContent.appendChild(titleElement);
+
+    // Create and append media container
+    const mediaContainer = document.createElement('div');
+    mediaContainer.id = 'modalMedia';
     const mediaContent = renderMedia(project.media);
-    
-    // Hide media container if no content returned
-    if (!mediaContent || mediaContent.trim() === '') {
-        mediaContainer.style.display = 'none';
-        mediaContainer.innerHTML = '';
-    } else {
-        mediaContainer.style.display = 'block';
+
+    if (mediaContent && mediaContent.trim() !== '') {
         mediaContainer.innerHTML = mediaContent;
+        modalContent.appendChild(mediaContainer);
     }
 
-    const linksContainer = document.getElementById('modalLinks');
-    linksContainer.innerHTML = '';
+    // Create and append links container
+    const linksContainer = document.createElement('div');
+    linksContainer.className = 'modal-links';
+    linksContainer.id = 'modalLinks';
+
     project.links.forEach(link => {
-        const linkEl = document.createElement('a');
-        linkEl.href = link.url;
-        linkEl.className = 'modal-link';
-        linkEl.textContent = link.text[currentLang];
-        linkEl.target = '_blank';
-        linksContainer.appendChild(linkEl);
+        const linkElement = document.createElement('a');
+        linkElement.href = link.url;
+        linkElement.className = 'modal-link';
+        linkElement.textContent = link.text[currentLang];
+        linkElement.target = '_blank';
+        linksContainer.appendChild(linkElement);
     });
+
+    if (project.links.length > 0) {
+        modalContent.appendChild(linksContainer);
+    }
+
+    // Create and append description
+    const descriptionElement = document.createElement('div');
+    descriptionElement.className = 'modal-description';
+    descriptionElement.id = 'modalDescription';
+    descriptionElement.innerHTML = project.detailedDescription[currentLang];
+    modalContent.appendChild(descriptionElement);
 }
 
 function openModal(projectId) {
