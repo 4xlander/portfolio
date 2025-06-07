@@ -16,9 +16,18 @@ function createProjectCard(project) {
                         <div class="image-loading">Loading...</div>
                     </div>
                     <h3 class="project-title">${project.title[currentLang]}</h3>
-                    <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
+
+                    ${project.tags?.length ? `
+                        <div class="project-tags common-tags">
+                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+
+                    ${project.genreTags?.length ? `
+                        <div class="project-tags genre-tags">
+                            ${project.genreTags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
                 </div>
             `;
 }

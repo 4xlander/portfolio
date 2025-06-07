@@ -89,7 +89,7 @@
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     color: #00ff88;
 }
@@ -106,13 +106,32 @@
     gap: 0.5rem;
 }
 
+/* Tags */
 .tag {
-    background: rgba(0, 200, 255, 0.2);
-    color: #00c8ff;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    border: 1px solid rgba(0, 200, 255, 0.3);
+    border: 1px solid;
+}
+
+.common-tags {
+    margin-bottom: 0.3rem;
+}
+
+.common-tags .tag {
+    background: rgba(0, 200, 255, 0.2);
+    border-color: rgba(0, 200, 255, 0.3);
+    color: #00c8ff;
+}
+
+.genre-tags {
+    margin-top: 0.3rem;
+    padding-top: 0.5rem;
+}
+.genre-tags .tag {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
 }
 
 /* Fallback for browsers that don't support :has() */
