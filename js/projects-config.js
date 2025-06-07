@@ -1,6 +1,30 @@
 // Projects configuration
 const projectsConfig = {
-    personal: [],
+    personal: [
+        {
+            id: 'test-corner-cross',
+            icon: '💼',
+            image: 'projects/personal/test-corner-cross/cover.jpg',
+            title: {
+                ru: '3D Mini Game',
+                en: '3D Mini Game'
+            },
+            tags: ['3D', 'Solo', 'Playable'],
+            genreTags: ['Hyper-Casual'],
+            detailedDescription: {
+                ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, Unity Physics, Input System</p></div><h4>Описание:</h4><p>Полноценная 3D мини-игра, выполненная в рамках тестового задания.</p><p>Шарик перемещается по кругу от платформы к платформе. Игрок может менять направление его движения по клику.</p><p>Очки начисляются, когда шарик касается подсвеченной платформы.</p><p>Игра заканчивается, если шарик сталкивается с летящим препятствием.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Реализация простого пользовательского интерфейса</span></li><li><span>Реализация игровых механик по техническому заданию</span></li><li><span>Подбор и интеграция музыкального и звукового сопровождения</span></li></ul>",
+                en: "<div class=\"project-meta\"><p><strong>Technologies:</strong> Unity UI, Unity Physics, Input System</p></div><h4>Description:</h4><p>A complete 3D mini-game developed as part of a test assignment.</p><p>The ball moves in a circular path from platform to platform. The player can change its direction by clicking.</p><p>Points are awarded when the ball touches a highlighted platform.</p><p>The game ends if the ball collides with a flying obstacle.</p><h4>Responsibilities:</h4><ul class=\"tasks-list\"><li><span>Implemented a simple user interface</span></li><li><span>Developed game mechanics according to the technical specification</span></li><li><span>Selected and integrated music and sound effects</span></li></ul>"
+
+            },
+            media: {
+                type: 'youtube',
+                url: 'https://youtube.com/shorts/BMBZKFFqhoU'
+            },
+            links: [
+                { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/test-corner-cross' }
+            ]
+        }
+    ],
     commercial: [
         {
             id: 'tess',
