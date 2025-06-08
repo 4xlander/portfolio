@@ -27,6 +27,25 @@ const projectsConfig = {
     ],
     commercial: [
         {
+            id: 'drawing-ball',
+            icon: '💼',
+            image: 'projects/commercial/drawing-ball/cover.jpg',
+            title: {
+                ru: 'Фриланс проект',
+                en: 'Freelance project'
+            },
+            tags: ['2D', 'Mobile', 'Solo'],
+            genreTags: ['Hyper Casual'],
+            detailedDescription: {
+                ru: "<div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (соло)</p><p><strong>Платформа:</strong> Mobile</p><p><strong>Технологии:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Описание:</h4><p>Полноценная 2D мини-игра, выполненная на фрилансе по техническому заданию заказчика.</p><p>Игрок, по принципу рогатки, запускает кружок по плоскости. Перемещаясь внутри границы, кружок закрашивает предоставленную фигуру. После того как будет закрашена определённая площадь фигуры, открывается следующий уровень.</p><p>При столкновении кружка с границей или с другими кружками-ботами игрок получает денежное вознаграждение. Заработанные деньги можно потратить на дополнительные опции:</p><ul class=\"tasks-list\"><li><span>Усиление отскока кружка от границы</span></li><li><span>Увеличение денежного вознаграждения за столкновения</span></li><li><span>Покупку вспомогательных кружков-ботов, которые двигаются в случайном направлении и также закрашивают фигуру</span></li></ul>",
+                en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (solo)</p><p><strong>Platform:</strong> Mobile</p><p><strong>Technologies:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Description:</h4><p>A complete 2D mini-game developed as a freelance project based on the client’s technical requirements.</p><p>The player launches a ball across a plane using a slingshot mechanic. As it moves within the boundary, the ball fills in the given shape. Once a certain percentage of the shape is filled, the next level becomes available.</p><p>When the ball collides with the border or with other bot balls, the player earns in-game currency. Earned currency can be spent on additional upgrades:</p><ul class=\"tasks-list\"><li><span>Increased ball bounce from the boundary</span></li><li><span>Increased reward for collisions</span></li><li><span>Purchase of helper bot balls that move randomly and also fill the shape</span></li></ul>"
+            },
+            media: {
+                type: 'youtube',
+                url: 'https://youtube.com/shorts/ahEtQFzaQBg'
+            }
+        },
+        {
             id: 'candy-gun',
             icon: '💼',
             image: 'projects/commercial/candy-gun/cover.jpg',
