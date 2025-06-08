@@ -33,20 +33,20 @@ function updateModalContent(project) {
     }
 
     // Create and append links container
-    const linksContainer = document.createElement('div');
-    linksContainer.className = 'modal-links';
-    linksContainer.id = 'modalLinks';
+    if (project.links?.length > 0) {
+        const linksContainer = document.createElement('div');
+        linksContainer.className = 'modal-links';
+        linksContainer.id = 'modalLinks';
 
-    project.links.forEach(link => {
-        const linkElement = document.createElement('a');
-        linkElement.href = link.url;
-        linkElement.className = 'modal-link';
-        linkElement.textContent = link.text[currentLang];
-        linkElement.target = '_blank';
-        linksContainer.appendChild(linkElement);
-    });
+        project.links.forEach(link => {
+            const linkElement = document.createElement('a');
+            linkElement.href = link.url;
+            linkElement.className = 'modal-link';
+            linkElement.textContent = link.text[currentLang];
+            linkElement.target = '_blank';
+            linksContainer.appendChild(linkElement);
+        });
 
-    if (project.links.length > 0) {
         modalContent.appendChild(linksContainer);
     }
 
