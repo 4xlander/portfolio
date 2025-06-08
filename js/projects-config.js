@@ -27,6 +27,25 @@ const projectsConfig = {
     ],
     commercial: [
         {
+            id: 'candy-gun',
+            icon: '💼',
+            image: 'projects/commercial/candy-gun/cover.jpg',
+            title: {
+                ru: 'Фриланс проект',
+                en: 'Freelance project'
+            },
+            tags: ['2D', 'Mobile', 'Solo'],
+            genreTags: ['Hyper Casual'],
+            detailedDescription: {
+                ru: "<div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (соло)</p><p><strong>Платформа:</strong> Mobile</p><p><strong>Технологии:</strong> Unity UI, Unity Physics, Particle System, Unity Ads</p></div><h4>Описание:</h4><p>Полноценная 2D мини-игра, выполненная на фрилансе по техническому заданию заказчика.</p><p>Игрок запускает конфеты в центр круглой области, где на них воздействует сила притяжения.</p><p>Очки начисляются, когда конфета сталкивается с другой такой же. Обе конфеты взрываются, и на их месте появляется следующая по цепочке конфета.</p><p>Игра заканчивается, если конфета пересекает границу круга и некоторое время находится в опасной зоне, о чём сигнализирует индикатор DANGER.</p><p>Есть опция замены текущей конфеты на самую крупную из уже находящихся в круге. Она приобретается за накопленные очки или за просмотр рекламы.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Самостоятельное ведение всего цикла разработки</span></li><li><span>Построение архитектуры проекта и реализация игровых механик по техническому заданию</span></li><li><span>Реализация UI с различными меню</span></li><li><span>Создание простых визуальных эффектов с использованием Particle System</span></li><li><span>Интеграция рекламы с помощью Unity Ads</span></li><li><span>Подбор и интеграция музыкального и звукового сопровождения</span></li></ul>",
+                en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (solo)</p><p><strong>Platform:</strong> Mobile</p><p><strong>Technologies:</strong> Unity UI, Unity Physics, Particle System, Unity Ads</p></div><h4>Description:</h4><p>A complete 2D mini-game developed as a freelance project based on the client's technical requirements.</p><p>The player launches candies into the center of a circular area, where they are affected by a gravitational force.</p><p>Points are awarded when a candy collides with another of the same type. Both candies explode, and the next candy in the chain appears in their place.</p><p>The game ends if a candy crosses the circle's border and stays in the danger zone for a certain amount of time, indicated by the DANGER alert.</p><p>There is an option to replace the current candy with the largest one already present in the circle. This option can be purchased with collected points or by watching an ad.</p><h4>Responsibilities:</h4><ul class=\"tasks-list\"><li><span>Handle the entire development cycle independently</span></li><li><span>Design project architecture and implement gameplay mechanics according to specifications</span></li><li><span>Develop UI with various menus</span></li><li><span>Create simple visual effects using the Particle System</span></li><li><span>Integrate ads using Unity Ads</span></li><li><span>Select and integrate music and sound effects</span></li></ul>"
+            },
+            media: {
+                type: 'youtube',
+                url: 'https://youtube.com/shorts/pTu6NPOoXQw'
+            }
+        },
+        {
             id: 'tess',
             icon: '💼',
             image: 'projects/commercial/tess/cover.webp',
@@ -44,7 +63,6 @@ const projectsConfig = {
                 { text: { ru: 'Google Play', en: 'Google Play' }, url: 'https://play.google.com/store/apps/details?id=com.leapgs.tess' }
             ]
         },
-
         {
             id: 'cyberjustice-p',
             icon: '💼',
@@ -63,7 +81,6 @@ const projectsConfig = {
                 { text: { ru: 'Сайт', en: 'Website' }, url: 'https://www.undeadfox.com/cyberjustice' }
             ]
         },
-
         {
             id: 'dark-lord',
             icon: '💼',
