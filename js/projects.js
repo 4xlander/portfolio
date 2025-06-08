@@ -15,7 +15,6 @@ function createProjectCard(project) {
                         <div class="image-fallback">${project.icon}</div>
                         <div class="image-loading">Loading...</div>
                     </div>
-                    <h3 class="project-title">${project.title[currentLang]}</h3>
 
                     ${project.tags?.length ? `
                         <div class="project-tags common-tags">
