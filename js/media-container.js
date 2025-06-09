@@ -153,7 +153,7 @@ function stopAllMedia() {
     });
 
     document.querySelectorAll('.media-container iframe').forEach(iframe => {
-        iframe.src = '';
+        iframe.remove();
     });
 }
 
