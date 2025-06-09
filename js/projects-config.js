@@ -2,6 +2,29 @@
 const projectsConfig = {
     personal: [
         {
+            id: 'test-3d-idle-tycoon',
+            icon: '💼',
+            image: 'projects/personal/test-3d-idle-tycoon/cover.jpg',
+            title: {
+                ru: '3D Idle Tycoon',
+                en: '3D Idle Tycoon'
+            },
+            tags: ['3D', 'PC', 'Test'],
+            genreTags: ['Idle Tycoon'],
+            detailedDescription: {
+                ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, AI Navigation</p></div><h4>Описание:</h4><p>Проект был выполнен в рамках тестового задания и реализует основные механики Idle Tycoon-игр:</p><ul class=\"tasks-list\"><li><span>Постройка зданий</span></li><li><span>Механика прогресса с возможностью расширения</span></li><li><span>Автоматическая сборка ресурсов ботами</span></li><li><span>Инвентарь и продажа ресурсов</span></li></ul>",
+                en: "<div class=\"project-meta\"><p><strong>Technologies:</strong> Unity UI, AI Navigation</p></div><h4>Description:</h4><p>This project was developed as part of a technical assignment and showcases core Idle Tycoon game mechanics:</p><ul class=\"tasks-list\"><li><span>Building construction</span></li><li><span>Progression system with expansion potential</span></li><li><span>Automated resource collection by bots</span></li><li><span>Inventory and resource selling</span></li></ul>"
+
+            },
+            media: {
+                type: 'youtube',
+                url: 'https://youtu.be/Lsqju56AmzE'
+            },
+            links: [
+                { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/test-3d-idle-tycoon' }
+            ]
+        },
+        {
             id: 'simple-3d-game',
             icon: '💼',
             image: 'projects/personal/simple-3d-game/cover.jpg',
