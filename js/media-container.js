@@ -44,8 +44,6 @@ function adjustMediaLayout(media) {
     const container = media.closest('.media-container');
     if (!container) return;
 
-    // console.log('Adjusting media layout for:', media);
-
     // YouTube, iframe
     if (media.tagName === 'IFRAME') {
         container.classList.add('horizontal');
@@ -85,11 +83,10 @@ function handleImageError(imgElement, fallbackIcon) {
 function createImageContent(mediaConfig) {
     return `
         <img src="${mediaConfig.url}" 
-             alt="${mediaConfig.alt || 'Project image'}" 
-             class="media-content"
-             loading="lazy"
-             onerror="handleImageError(this, '${mediaConfig.fallback || '🖼️'}')">
-        <div class="media-loading">Loading image...</div>
+            alt="${mediaConfig.alt || 'Project image'}" 
+            class="media-content"
+            loading="lazy"
+            onerror="handleImageError(this, '${mediaConfig.fallback || '🖼️'}')">
     `;
 }
 
@@ -102,35 +99,34 @@ function createYouTubeContent(mediaConfig) {
 
     return `
         <iframe src="https://www.youtube.com/embed/${videoId}"
-                class="media-content"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-                onerror="handleIframeError(this)"></iframe>
-        <div class="media-loading">Loading YouTube video...</div>
+            class="media-content"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            onerror="handleIframeError(this)">
+        </iframe>
     `;
 }
 
 function createVideoContent(mediaConfig) {
     return `
-    <video class="media-content" controls playsinline onerror="handleVideoError(this)">
-    <source src="${mediaConfig.url}" type="${mediaConfig.mimeType || 'video/mp4'}">
-    Your browser does not support HTML5 video.
-    </video>
-    <div class="media-loading">Loading video...</div>
+        <video class="media-content" controls playsinline onerror="handleVideoError(this)">
+            <source src="${mediaConfig.url}" type="${mediaConfig.mimeType || 'video/mp4'}">
+            Your browser does not support HTML5 video.
+        </video>
     `;
 }
 
 function createIframeContent(mediaConfig) {
     return `
-    <iframe src="${mediaConfig.url}"
-    class="media-content"
-    frameborder="0"
-    loading="lazy"
-    sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"
-    onerror="handleIframeError(this)"></iframe>
-    <div class="media-loading">Loading content...</div>
+        <iframe src="${mediaConfig.url}"
+            class="media-content"
+            frameborder="0"
+            loading="lazy"
+            sandbox="${mediaConfig.sandbox || 'allow-scripts allow-same-origin'}"
+            onerror="handleIframeError(this)">
+        </iframe>
     `;
 }
 
@@ -179,24 +175,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle image loading
     document.addEventListener('load', function (e) {
         adjustMediaLayout(e.target);
-        if (e.target.tagName === 'IMG' && e.target.classList.contains('media-content')) {
-            const loadingIndicator = e.target.parentElement.querySelector('.media-loading');
-            if (loadingIndicator) {
-                loadingIndicator.style.opacity = '0';
-            }
-        }
     }, true);
 
     // Handle iframe loading
     document.addEventListener('load', function (e) {
         if (e.target.tagName === 'IFRAME' && e.target.classList.contains('media-content')) {
             adjustMediaLayout(e.target);
-            const loadingIndicator = e.target.parentElement.querySelector('.media-loading');
-            if (loadingIndicator) {
-                setTimeout(() => {
-                    loadingIndicator.style.opacity = '0';
-                }, 1000);
-            }
         }
     }, true);
 });

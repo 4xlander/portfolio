@@ -38,22 +38,6 @@
     padding: 2rem;
 }
 
-.media-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(0, 255, 136, 0.4);
-    font-size: 0.9rem;
-    z-index: 1;
-    transition: opacity 0.3s ease;
-}
-
-.media-container:has(.media-content:not([src=""])) .media-loading {
-    opacity: 0;
-}
-
-
 .media-container.vertical {
     max-width: 400px;
 }
