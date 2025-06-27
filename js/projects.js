@@ -2,33 +2,36 @@
 // Function to create project card HTML
 function createProjectCard(project) {
     return `
-                <div class="project-card" onclick="openModal('${project.id}')">
-                    <div class="project-preview">
-                        <img 
-                            class="project-image" 
-                            data-src="${project.image || ''}" 
-                            alt="${project.title[currentLang]}"
-                            loading="lazy"
-                            onload="this.classList.add('loaded'); handleImageLoad(this)"
-                            onerror="this.classList.add('error'); handleImageError(this)"
-                        />
-                        <div class="image-fallback">${project.icon}</div>
-                        <div class="image-loading">Loading...</div>
-                    </div>
+        <div class="project-card" onclick="openModal('${project.id}')">
+        <div class="project-preview">
+            ${project.image ? `
+                <img 
+                    class="project-image"
+                    data-src="${project.image}"
+                    alt="${project.title[currentLang]}"
+                    loading="lazy"
+                    onload="this.classList.add('loaded'); handleImageLoad(this)"
+                    onerror="this.classList.add('error'); handleImageError(this)"
+                />
+                <div class="image-placeholder"></div>
+            ` : `
+                <div class="image-fallback">${project.icon || '📁'}</div>
+            `}
+        </div>
 
-                    ${project.tags?.length ? `
-                        <div class="project-tags common-tags">
-                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    ` : ''}
-
-                    ${project.genreTags?.length ? `
-                        <div class="project-tags genre-tags">
-                            ${project.genreTags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    ` : ''}
+            ${project.tags?.length ? `
+                <div class="project-tags common-tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-            `;
+            ` : ''}
+
+            ${project.genreTags?.length ? `
+                <div class="project-tags genre-tags">
+                    ${project.genreTags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `;
 }
 
 // Handle image load/error events
