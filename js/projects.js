@@ -21,7 +21,9 @@ function createProjectCard(project) {
 
             ${project.tags?.length ? `
                 <div class="project-tags common-tags">
-                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    ${project.tags.map(tag => {
+                    const tagClass = tag === 'Try WEB' ? 'tag try-web-tag' : 'tag';
+                    return `<span class="${tagClass}">${tag}</span>`;}).join('')}
                 </div>
             ` : ''}
 

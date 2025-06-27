@@ -32,7 +32,7 @@ const projectsConfig = {
                 ru: 'Simple 3D Game',
                 en: 'Simple 3D Game'
             },
-            tags: ['3D', 'Playable'],
+            tags: ['3D', 'Try WEB'],
             genreTags: ['Hyper Casual'],
             detailedDescription: {
                 ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, Unity Physics, Input System</p></div><h4>Описание:</h4><p>Полноценная 3D мини-игра, выполненная в рамках тестового задания.</p><p>Шарик перемещается по кругу от платформы к платформе. Игрок может менять направление его движения по клику.</p><p>Очки начисляются, когда шарик касается подсвеченной платформы.</p><p>Игра заканчивается, если шарик сталкивается с летящим препятствием.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Реализация простого пользовательского интерфейса</span></li><li><span>Реализация игровых механик по техническому заданию</span></li><li><span>Подбор и интеграция музыкального и звукового сопровождения</span></li></ul>",
@@ -45,7 +45,7 @@ const projectsConfig = {
             },
             links: [
                 { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/simple-3d-game' },
-                { text: { ru: 'Играть', en: 'Play' }, url: 'https://4xlgames.itch.io/simple-3d-game' }
+                { text: { ru: 'Try WEB', en: 'Try WEB' }, url: 'https://4xlgames.itch.io/simple-3d-game' },
             ]
         }
     ],
