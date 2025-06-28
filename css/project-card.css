@@ -58,9 +58,9 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg,
-    rgba(0, 255, 136, 0.05) 0%,
-    rgba(0, 255, 136, 0.15) 50%,
-    rgba(0, 255, 136, 0.05) 100%);
+            rgba(0, 255, 136, 0.05) 0%,
+            rgba(0, 255, 136, 0.15) 50%,
+            rgba(0, 255, 136, 0.05) 100%);
     background-size: 200% 100%;
     animation: shimmer 1.2s ease-in-out infinite;
     position: absolute;
@@ -158,11 +158,11 @@
 
 /* Fallback for browsers that don't support :has() */
 @supports not selector(:has(*)) {
-    .project-image.loaded ~ .image-fallback {
+    .project-image.loaded~.image-fallback {
         opacity: 0;
     }
 
-    .project-image.loaded ~ .image-placeholder {
+    .project-image.loaded~.image-placeholder {
         opacity: 0;
     }
 }

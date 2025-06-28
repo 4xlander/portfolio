@@ -16,3 +16,17 @@
      max-width: 1200px;
      margin: 0 auto;
  }
+
+ @media (max-width: 768px) {
+     .main-content {
+         padding-top: calc(80px + 1rem);
+     }
+
+     .header {
+         padding: 0.5rem 1rem;
+     }
+
+     .project-card:first-child {
+         margin-top: 1.2rem;
+     }
+ }
