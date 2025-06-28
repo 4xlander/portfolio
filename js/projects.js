@@ -1,29 +1,29 @@
-
 // Function to create project card HTML
 function createProjectCard(project) {
     return `
         <div class="project-card" onclick="openModal('${project.id}')">
-        <div class="project-preview">
-            ${project.image ? `
-                <img 
-                    class="project-image"
-                    data-src="${project.image}"
-                    alt="${project.title[currentLang]}"
-                    loading="lazy"
-                    onload="this.classList.add('loaded'); handleImageLoad(this)"
-                    onerror="this.classList.add('error'); handleImageError(this)"
-                />
-                <div class="image-placeholder"></div>
-            ` : `
-                <div class="image-fallback">${project.icon || '📁'}</div>
-            `}
-        </div>
+            <div class="project-preview">
+                ${project.image ? `
+                    <img 
+                        class="project-image"
+                        data-src="${project.image}"
+                        alt="${project.title[currentLang]}"
+                        loading="lazy"
+                        onload="this.classList.add('loaded'); handleImageLoad(this)"
+                        onerror="this.classList.add('error'); handleImageError(this)"
+                    />
+                    <div class="image-placeholder"></div>
+                ` : `
+                    <div class="image-fallback">${project.icon || '📁'}</div>
+                `}
+            </div>
 
             ${project.tags?.length ? `
                 <div class="project-tags common-tags">
                     ${project.tags.map(tag => {
-                    const tagClass = tag === 'Try WEB' ? 'tag try-web-tag' : 'tag';
-                    return `<span class="${tagClass}">${tag}</span>`;}).join('')}
+                        const tagClass = tag === 'Try WEB' ? 'tag try-web-tag' : 'tag';
+                        return `<span class="${tagClass}">${tag}</span>`;
+                    }).join('')}
                 </div>
             ` : ''}
 
@@ -55,22 +55,26 @@ function handleImageError(img) {
     }
 }
 
-// Function to load projects from config
-function loadProjects() {
-    // Load personal projects
-    const personalContainer = document.getElementById('personalProjects');
-    personalContainer.innerHTML = projectsConfig.personal
+// Projects filtering and display
+function displayProjects(filter = 'All') {
+    const projectsGrid = document.getElementById('projectsGrid');
+
+    projectsGrid.innerHTML = projectsConfig
+        .filter(project => filter === 'All' || project.tags.includes(filter))
         .map(project => createProjectCard(project))
         .join('');
 
-    // Load commercial projects
-    const commercialContainer = document.getElementById('commercialProjects');
-    commercialContainer.innerHTML = projectsConfig.commercial
-        .map(project => createProjectCard(project))
-        .join('');
-
-    // Initialize lazy loading for images
     initializeLazyLoading();
+}
+
+// Update active button state
+function setActiveButton(filterType) {
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === filterType) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 // Lazy loading implementation
@@ -98,7 +102,17 @@ function initializeLazyLoading() {
     });
 }
 
-// Load projects on page load
-document.addEventListener('DOMContentLoaded', function () {
-    loadProjects();
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    // Load all projects by default
+    displayProjects('All');
+
+    // Filter buttons event listeners
+    document.querySelectorAll('.nav-btn[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterType = btn.dataset.filter;
+            displayProjects(filterType);
+            setActiveButton(filterType);
+        });
+    });
 });

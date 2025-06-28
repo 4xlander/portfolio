@@ -1,7 +1,6 @@
 // Function to find project by ID
 function findProjectById(projectId) {
-    const allProjects = [...projectsConfig.personal, ...projectsConfig.commercial];
-    return allProjects.find(project => project.id === projectId);
+    return projectsConfig.find(project => project.id === projectId);
 }
 
 // Modal system - updated to work with config

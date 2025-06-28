@@ -25,9 +25,9 @@
         <div class="nav-container">
             <div class="logo" data-ru="Портфолио" data-en="Portfolio">Portfolio</div>
             <div class="nav-controls">
-                <button class="nav-btn" data-section="personal" data-ru="Личные"
-                    data-en="Personal">Personal</button>
-                <button class="nav-btn active" data-section="commercial" data-ru="Коммерческие"
+                <button class="nav-btn active" data-filter="All" data-ru="Все" data-en="All">All</button>
+                <button class="nav-btn" data-filter="Personal" data-ru="Личные" data-en="Personal">Personal</button>
+                <button class="nav-btn" data-filter="Commercial" data-ru="Коммерческие"
                     data-en="Commercial">Commercial</button>
                 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">RU</button>
             </div>
@@ -36,16 +36,8 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Personal Projects Section -->
-        <section id="personal" class="section">
-            <div class="projects-grid" id="personalProjects">
-                <!-- Projects will be loaded dynamically -->
-            </div>
-        </section>
-
-        <!-- Commercial Projects Section -->
-        <section id="commercial" class="section active">
-            <div class="projects-grid" id="commercialProjects">
+        <section class="section">
+            <div class="projects-grid" id="projectsGrid">
                 <!-- Projects will be loaded dynamically -->
             </div>
         </section>
@@ -59,7 +51,6 @@
     </div>
 
     <script src="js/language.js"></script>
-    <script src="js/switch-section.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/media-container.js"></script>
     <script src="js/modal.js"></script>

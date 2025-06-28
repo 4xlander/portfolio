@@ -5,40 +5,12 @@
      padding-top: 80px;
      min-height: 100vh;
  }
-
- .hero-section {
-     text-align: center;
-     padding: 4rem 2rem;
-     max-width: 800px;
-     margin: 0 auto;
- }
-
- .hero-title {
-     font-size: 3.5rem;
-     margin-bottom: 1rem;
-     background: linear-gradient(45deg, #00ff88, #00c8ff);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     background-clip: text;
-     text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
- }
-
- .hero-subtitle {
-     font-size: 1.2rem;
-     opacity: 0.8;
-     margin-bottom: 2rem;
- }
-
- /* Sections */
+/* 
  .section {
-     display: none;
+     display: block;
      padding: 2rem;
      margin: 0 auto;
- }
-
- .section.active {
-     display: block;
- }
+ } */
 
  .projects-grid {
      display: grid;
@@ -49,11 +21,4 @@
      width: 100%;
      max-width: 1200px;
      margin: 0 auto;
- }
-
- /* Responsive */
- @media (max-width: 768px) {
-     .hero-title {
-         font-size: 2.5rem;
-     }
  }
