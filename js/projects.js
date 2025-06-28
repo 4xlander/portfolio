@@ -1,5 +1,5 @@
 // Function to create project card HTML
-function createProjectCard(project) {
+function createProjectCard(project, currentFilter = 'All') {
     return `
         <div class="project-card" onclick="openModal('${project.id}')">
             <div class="project-preview">
@@ -18,18 +18,22 @@ function createProjectCard(project) {
                 `}
             </div>
 
-            ${project.tags?.length ? `
-                <div class="project-tags common-tags">
-                    ${project.tags.map(tag => {
-                        const tagClass = tag === 'Try WEB' ? 'tag try-web-tag' : 'tag';
-                        return `<span class="${tagClass}">${tag}</span>`;
-                    }).join('')}
-                </div>
-            ` : ''}
-
-            ${project.genreTags?.length ? `
-                <div class="project-tags genre-tags">
-                    ${project.genreTags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            ${(project.tags?.length || project.genreTags?.length) ? `
+                <div class="project-tags">
+                    ${[
+                        ...(project.tags?.filter(tag => tag !== currentFilter)
+                           .map(tag => ({
+                                tag,
+                                type: tag === 'Try WEB' ? 'try-web-tag' : 'common-tag'
+                           })) || []),
+                        ...(project.genreTags?.filter(tag => tag !== currentFilter)
+                           .map(tag => ({
+                                tag,
+                                type: 'genre-tag'
+                           })) || [])
+                    ].map(({tag, type}) => `
+                        <span class="tag ${type}">${tag}</span>
+                    `).join('')}
                 </div>
             ` : ''}
         </div>
@@ -58,10 +62,12 @@ function handleImageError(img) {
 // Projects filtering and display
 function displayProjects(filter = 'All') {
     const projectsGrid = document.getElementById('projectsGrid');
-
+    
     projectsGrid.innerHTML = projectsConfig
-        .filter(project => filter === 'All' || project.tags.includes(filter))
-        .map(project => createProjectCard(project))
+        .filter(project => filter === 'All' || 
+               project.tags.includes(filter) || 
+               project.genreTags.includes(filter))
+        .map(project => createProjectCard(project, filter))
         .join('');
 
     initializeLazyLoading();
