@@ -75,4 +75,10 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .nav-btn,
+    .lang-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
 }
