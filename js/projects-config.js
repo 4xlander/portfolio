@@ -1,6 +1,28 @@
 // Projects configuration
 const projectsConfig = [
     {
+        id: 'test-project-1',
+        icon: '💼',
+        image: 'projects/test-project-1/cover.jpg',
+        title: {
+            ru: 'Тестовый проект',
+            en: 'Test project'
+        },
+        tags: ['Personal', 'Test', '3D'],
+        genreTags: ['AI Bots', 'Resource Collection'],
+        detailedDescription: {
+            ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, AI Navigation, MVC, State Machine</p></div><h4>Описание:</h4><p>В проекте реализована система сбора ресурсов с участием ботов двух фракций.</p><p>Случайные ресурсы появляются в произвольных точках пространства. У каждой базы есть собственные боты, которые автоматически собирают ресурсы по заданному алгоритму.</p><p>Для навигации используются NavMesh-агенты, что позволяет ботам эффективно обходить препятствия. Поведение ботов организовано с помощью паттерна «машина состояний».</p><p>В проекте используется архитектурный паттерн MVC. Есть точка входа, отвечающая за инициализацию основных игровых сущностей. Логика обновления объектов централизована через TickManager.</p><p>Простой пользовательский интерфейс позволяет:</p><ul class=\"tasks-list\"><li><span>Настраивать количество ботов у каждой базы</span></li><li><span>Изменять скорость их передвижения</span></li><li><span>Регулировать частоту появления ресурсов</span></li><li><span>Включать и отключать визуализацию маршрутов</span></li><li><span>Просматривать текущее количество ресурсов на каждой базе</span></li></ul>",
+            en: "<div class=\"project-meta\"><p><strong>Technologies:</strong> Unity UI, AI Navigation, MVC, State Machine</p></div><h4>Description:</h4><p>The project implements a resource collection system involving bots from two factions.</p><p>Random resources spawn at random positions in the environment. Each base has its own bots that automatically collect resources according to a predefined algorithm.</p><p>Navigation is handled by NavMesh agents, allowing bots to effectively avoid obstacles. Bot behavior is organized using the State Machine pattern.</p><p>The project uses the MVC architectural pattern. There is an entry point responsible for initializing core game entities. Object logic updates are centralized via a TickManager.</p><p>A simple user interface allows:</p><ul class=\"tasks-list\"><li><span>Adjusting the number of bots at each base</span></li><li><span>Changing bot movement speed</span></li><li><span>Configuring resource spawn rate</span></li><li><span>Enabling or disabling path visualization</span></li><li><span>Displaying current resource amounts at each base</span></li></ul>"
+        },
+        media: {
+            type: 'youtube',
+            url: 'https://youtu.be/KmBP4TYE7Ac'
+        },
+        links: [
+            { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/test-project-1' }
+        ]
+    },
+    {
         id: 'drawing-ball',
         icon: '💼',
         image: 'projects/drawing-ball/cover.jpg',
@@ -46,7 +68,7 @@ const projectsConfig = [
             ru: '3D Idle Tycoon',
             en: '3D Idle Tycoon'
         },
-        tags: ['Personal', '3D', 'PC', 'Test'],
+        tags: ['Personal', 'Test', '3D', 'PC'],
         genreTags: ['Idle Tycoon'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, AI Navigation</p></div><h4>Описание:</h4><p>Проект был выполнен в рамках тестового задания и реализует основные механики Idle Tycoon-игр:</p><ul class=\"tasks-list\"><li><span>Постройка зданий</span></li><li><span>Механика прогресса с возможностью расширения</span></li><li><span>Автоматическая сборка ресурсов ботами</span></li><li><span>Инвентарь и продажа ресурсов</span></li></ul>",
@@ -69,7 +91,7 @@ const projectsConfig = [
             ru: 'Simple 3D Game',
             en: 'Simple 3D Game'
         },
-        tags: ['Personal', '3D', 'Cross', 'Try WEB'],
+        tags: ['Personal', '3D', 'PC', 'Mobile', 'Try WEB'],
         genreTags: ['Hyper Casual'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, Unity Physics, Input System</p></div><h4>Описание:</h4><p>Полноценная 3D мини-игра, выполненная в рамках тестового задания.</p><p>Шарик перемещается по кругу от платформы к платформе. Игрок может менять направление его движения по клику.</p><p>Очки начисляются, когда шарик касается подсвеченной платформы.</p><p>Игра заканчивается, если шарик сталкивается с летящим препятствием.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Реализация простого пользовательского интерфейса</span></li><li><span>Реализация игровых механик по техническому заданию</span></li><li><span>Подбор и интеграция музыкального и звукового сопровождения</span></li></ul>",
