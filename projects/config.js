@@ -1,6 +1,25 @@
 // Projects configuration
 const projectsConfig = [
     {
+        id: 'proj-15',
+        icon: '💼',
+        image: 'projects/proj-15/cover.jpg',
+        title: {
+            ru: 'Фриланс проект',
+            en: 'Freelance project'
+        },
+        tags: ['Commercial', 'Solo', '2D', 'Mobile'],
+        genreTags: ['Hyper Casual'],
+        detailedDescription: {
+            ru: "<div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (соло)</p><p><strong>Платформа:</strong> Mobile</p><p><strong>Технологии:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Описание:</h4><p>Полноценная 2D мини-игра, выполненная на фрилансе по техническому заданию заказчика.</p><p>Игрок свайпом двигает сани и ловит падающие подарки, составляя их в стопку. Если подарок упал — игра заканчивается.</p><p>В игре два режима: основной сосредоточен на сборе как можно большего количества подарков, а во втором игроку нужно собрать заданное количество, чтобы получить денежное вознаграждение.</p><p>В магазине игрок может приобрести улучшенные сани за игровую валюту, заработанную в челенджах.</p>",
+            en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (Solo)</p><p><strong>Platform:</strong> Mobile</p><p><strong>Technologies:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Description:</h4><p>A fully-featured 2D mini-game developed as a freelance project based on the client's technical specification.</p><p>The player swipes to move a sled and catch falling gifts, stacking them up. If a gift falls to the ground, the game ends.</p><p>There are two game modes: the main one focuses on collecting as many gifts as possible, while the second requires the player to gather a specific number of gifts to earn a monetary reward.</p><p>The in-game store allows players to purchase upgraded sleds using in-game currency earned in challenge mode.</p>"
+        },
+        media: {
+            type: 'youtube',
+            url: 'https://youtube.com/shorts/f4ExH99TjLk'
+        }
+    },
+    {
         id: 'test-project-1',
         icon: '💼',
         image: 'projects/test-project-1/cover.jpg',
