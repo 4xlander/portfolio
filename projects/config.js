@@ -20,6 +20,28 @@ const projectsConfig = [
         }
     },
     {
+        id: 'test-project-2',
+        icon: '💼',
+        image: 'projects/test-project-2/cover.jpg',
+        title: {
+            ru: 'Тестовый проект',
+            en: 'Test project'
+        },
+        tags: ['Personal', 'Test', '2D'],
+        genreTags: ['Novel', 'Card Game'],
+        detailedDescription: {
+            ru: "<div class=\"project-meta\"><p><strong>Технологии: </strong>Unity UI, Naninovel</p></div><h4>Описание:</h4><p>Проект выполнен в рамках тестового задания.</p><p>Необходимо было разработать визуальную новеллу в соответствии с техническим заданием с использованием предоставленных ассетов.</p><p>Фоны локаций и персонажи сгенерированы с помощью ИИ.</p><p>Геймплей реализует следующие требования:</p><ul class=\"tasks-list\"><li><span>Кастомизированное главное меню</span></li><li><span>Возможность ввести никнейм игрока, который используется в диалогах</span></li><li><span>Глобальная карта для перехода между локациями</span></li><li><span>Диалоги игрока с NPC в отдельных локациях</span></li><li><span>Получение и прохождение квеста через диалоги</span></li><li><span>Мини-игра «парные карты», запускаемая в одном из диалогов</span></li><li><span>Интерактивное взаимодействие с предметом в одной из локаций</span></li><li><span>Разветвлённый финальный диалог с различными реакциями NPC на действия игрока</span></li><li><span>Журнал прохождения квеста</span></li></ul>",
+            en: "<div class=\"project-meta\"><p><strong>Technologies: </strong>Unity UI, Naninovel</p></div><h4>Description:</h4><p>This project was completed as part of a test assignment.</p><p>The task was to develop a visual novel according to the technical requirements using provided assets.</p><p>Location backgrounds and character sprites were generated using AI tools.</p><p>The gameplay includes the following features:</p><ul class=\"tasks-list\"><li><span>Customized main menu</span></li><li><span>Ability to enter a player nickname used in dialogues</span></li><li><span>Global map for navigating between locations</span></li><li><span>Dialogues with NPCs in individual locations</span></li><li><span>Quest acquisition and progression through dialogue</span></li><li><span>A “matching cards” mini-game triggered during one of the dialogues</span></li><li><span>An interactive item used in one of the locations</span></li><li><span>Branched final dialogue with NPC reactions based on the player's choices</span></li><li><span>Quest progress journal</span></li></ul>"
+        },
+        media: {
+            type: 'youtube',
+            url: 'https://youtu.be/uSH90UlthaI'
+        },
+        links: [
+            { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/test-project-2' }
+        ]
+    },
+    {
         id: 'test-project-1',
         icon: '💼',
         image: 'projects/test-project-1/cover.jpg',
