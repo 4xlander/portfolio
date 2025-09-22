@@ -11,9 +11,6 @@ function toggleLanguage() {
         el.textContent = text;
     });
 
-    // Reload projects with new language
-    loadProjects();
-
     // Update modal if it's open
     const modal = document.getElementById('modal');
     if (modal.style.display === 'block') {
