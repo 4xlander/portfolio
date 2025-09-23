@@ -5,8 +5,8 @@ const projectsConfig = [
         icon: '💼',
         image: 'projects/proj-16/cover.jpg',
         title: {
-            ru: 'Фриланс проект',
-            en: 'Freelance project'
+            ru: 'Коммерческий проект',
+            en: 'Commercial project'
         },
         tags: ['Commercial', 'Solo', '2D', 'Mobile'],
         genreTags: ['Tower Defense Light'],
@@ -24,8 +24,8 @@ const projectsConfig = [
         icon: '💼',
         image: 'projects/proj-15/cover.jpg',
         title: {
-            ru: 'Фриланс проект',
-            en: 'Freelance project'
+            ru: 'Коммерческий проект',
+            en: 'Commercial project'
         },
         tags: ['Commercial', 'Solo', '2D', 'Mobile'],
         genreTags: ['Hyper Casual'],
@@ -87,8 +87,8 @@ const projectsConfig = [
         icon: '💼',
         image: 'projects/drawing-ball/cover.jpg',
         title: {
-            ru: 'Фриланс проект',
-            en: 'Freelance project'
+            ru: 'Коммерческий проект',
+            en: 'Commercial project'
         },
         tags: ['Commercial', 'Solo', '2D', 'Mobile'],
         genreTags: ['Hyper Casual'],
@@ -106,8 +106,8 @@ const projectsConfig = [
         icon: '💼',
         image: 'projects/candy-gun/cover.jpg',
         title: {
-            ru: 'Фриланс проект',
-            en: 'Freelance project'
+            ru: 'Коммерческий проект',
+            en: 'Commercial project'
         },
         tags: ['Commercial', 'Solo', '2D', 'Mobile'],
         genreTags: ['Hyper Casual'],
