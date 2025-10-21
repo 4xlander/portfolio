@@ -31,7 +31,7 @@ const projectsConfig = [
         genreTags: ['Hyper Casual'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Роль:</strong> Unity-разработчик (соло)</p><p><strong>Платформа:</strong> Mobile</p><p><strong>Технологии:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Описание:</h4><p>Полноценная 2D мини-игра, выполненная на фрилансе по техническому заданию заказчика.</p><p>Игрок свайпом двигает сани и ловит падающие подарки, составляя их в стопку. Если подарок упал — игра заканчивается.</p><p>В игре два режима: основной сосредоточен на сборе как можно большего количества подарков, а во втором игроку нужно собрать заданное количество, чтобы получить денежное вознаграждение.</p><p>В магазине игрок может приобрести улучшенные сани за игровую валюту, заработанную в челенджах.</p>",
-            en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (Solo)</p><p><strong>Platform:</strong> Mobile</p><p><strong>Technologies:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Description:</h4><p>A fully-featured 2D mini-game developed as a freelance project based on the client's technical specification.</p><p>The player swipes to move a sled and catch falling gifts, stacking them up. If a gift falls to the ground, the game ends.</p><p>There are two game modes: the main one focuses on collecting as many gifts as possible, while the second requires the player to gather a specific number of gifts to earn a monetary reward.</p><p>The in-game store allows players to purchase upgraded sleds using in-game currency earned in challenge mode.</p>"
+            en: "<div class=\"project-meta\"><p><strong>Role:</strong> Unity Developer (solo)</p><p><strong>Platform:</strong> Mobile</p><p><strong>Technologies:</strong> Unity UI, Unity Physics, VContainer</p></div><h4>Description:</h4><p>A fully-featured 2D mini-game developed as a freelance project based on the client's technical specification.</p><p>The player swipes to move a sled and catch falling gifts, stacking them up. If a gift falls to the ground, the game ends.</p><p>There are two game modes: the main one focuses on collecting as many gifts as possible, while the second requires the player to gather a specific number of gifts to earn a monetary reward.</p><p>The in-game store allows players to purchase upgraded sleds using in-game currency earned in challenge mode.</p>"
         },
         media: {
             type: 'youtube',
@@ -46,7 +46,7 @@ const projectsConfig = [
             ru: 'Тестовый проект',
             en: 'Test project'
         },
-        tags: ['Personal', 'Test', '2D'],
+        tags: ['Personal', 'Test', '2D', 'Git'],
         genreTags: ['Novel', 'Card Game'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии: </strong>Unity UI, Naninovel</p></div><h4>Описание:</h4><p>Проект выполнен в рамках тестового задания.</p><p>Необходимо было разработать визуальную новеллу в соответствии с техническим заданием с использованием предоставленных ассетов.</p><p>Фоны локаций и персонажи сгенерированы с помощью ИИ.</p><p>Геймплей реализует следующие требования:</p><ul class=\"tasks-list\"><li><span>Кастомизированное главное меню</span></li><li><span>Возможность ввести никнейм игрока, который используется в диалогах</span></li><li><span>Глобальная карта для перехода между локациями</span></li><li><span>Диалоги игрока с NPC в отдельных локациях</span></li><li><span>Получение и прохождение квеста через диалоги</span></li><li><span>Мини-игра «парные карты», запускаемая в одном из диалогов</span></li><li><span>Интерактивное взаимодействие с предметом в одной из локаций</span></li><li><span>Разветвлённый финальный диалог с различными реакциями NPC на действия игрока</span></li><li><span>Журнал прохождения квеста</span></li></ul>",
@@ -68,7 +68,7 @@ const projectsConfig = [
             ru: 'Тестовый проект',
             en: 'Test project'
         },
-        tags: ['Personal', 'Test', '3D'],
+        tags: ['Personal', 'Test', '3D', 'Git'],
         genreTags: ['AI Bots', 'Resource Collection'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, AI Navigation, MVC, State Machine</p></div><h4>Описание:</h4><p>В проекте реализована система сбора ресурсов с участием ботов двух фракций.</p><p>Случайные ресурсы появляются в произвольных точках пространства. У каждой базы есть собственные боты, которые автоматически собирают ресурсы по заданному алгоритму.</p><p>Для навигации используются NavMesh-агенты, что позволяет ботам эффективно обходить препятствия. Поведение ботов организовано с помощью паттерна «машина состояний».</p><p>В проекте используется архитектурный паттерн MVC. Есть точка входа, отвечающая за инициализацию основных игровых сущностей. Логика обновления объектов централизована через TickManager.</p><p>Простой пользовательский интерфейс позволяет:</p><ul class=\"tasks-list\"><li><span>Настраивать количество ботов у каждой базы</span></li><li><span>Изменять скорость их передвижения</span></li><li><span>Регулировать частоту появления ресурсов</span></li><li><span>Включать и отключать визуализацию маршрутов</span></li><li><span>Просматривать текущее количество ресурсов на каждой базе</span></li></ul>",
@@ -128,7 +128,7 @@ const projectsConfig = [
             ru: '3D Idle Tycoon',
             en: '3D Idle Tycoon'
         },
-        tags: ['Personal', 'Test', '3D', 'PC'],
+        tags: ['Personal', 'Test', '3D', 'PC', 'Git'],
         genreTags: ['Idle Tycoon'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, AI Navigation</p></div><h4>Описание:</h4><p>Проект был выполнен в рамках тестового задания и реализует основные механики Idle Tycoon-игр:</p><ul class=\"tasks-list\"><li><span>Постройка зданий</span></li><li><span>Механика прогресса с возможностью расширения</span></li><li><span>Автоматическая сборка ресурсов ботами</span></li><li><span>Инвентарь и продажа ресурсов</span></li></ul>",
@@ -151,7 +151,7 @@ const projectsConfig = [
             ru: 'Simple 3D Game',
             en: 'Simple 3D Game'
         },
-        tags: ['Personal', '3D', 'PC', 'Mobile', 'Try WEB'],
+        tags: ['Personal', '3D', 'PC', 'Mobile', 'Git', 'Try WEB'],
         genreTags: ['Hyper Casual'],
         detailedDescription: {
             ru: "<div class=\"project-meta\"><p><strong>Технологии:</strong> Unity UI, Unity Physics, Input System</p></div><h4>Описание:</h4><p>Полноценная 3D мини-игра, выполненная в рамках тестового задания.</p><p>Шарик перемещается по кругу от платформы к платформе. Игрок может менять направление его движения по клику.</p><p>Очки начисляются, когда шарик касается подсвеченной платформы.</p><p>Игра заканчивается, если шарик сталкивается с летящим препятствием.</p><h4>Мои задачи:</h4><ul class=\"tasks-list\"><li><span>Реализация простого пользовательского интерфейса</span></li><li><span>Реализация игровых механик по техническому заданию</span></li><li><span>Подбор и интеграция музыкального и звукового сопровождения</span></li></ul>",
