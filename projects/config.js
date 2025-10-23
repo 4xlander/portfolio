@@ -20,6 +20,24 @@ const projectsConfig = [
         }
     },
     {
+        id: 'test-minesweeper',
+        icon: '💼',
+        image: 'projects/test-minesweeper/cover.jpg',
+        title: {
+            ru: 'Тестовый проект',
+            en: 'Test project'
+        },
+        tags: ['Personal', 'Test', 'UI', 'Git'],
+        genreTags: ['Minesweeper'],
+        detailedDescription: {
+            ru: "<div class=\"project-meta\"><p><strong>Технологии: </strong>Unity UI, MVP</p></div><h4>Описание:</h4><p>Простая реализация классической игры «Сапёр», созданная с использованием архитектурного паттерна MVP.<br>Инициализация игрового процесса выполняется через скрипт GameEntryPoint.<br>Настройки размера поля, количества мин и клавиша перезапуска (по умолчанию R) задаются в GameConfigSO.</p><p>Геймплей реализует следующие возможности:</p><ul class=\"tasks-list\"><li><span>Первый клик всегда безопасен</span></li><li><span>Левый клик — открытие ячейки, правый — установка флага</span></li><li><span>Пустые ячейки автоматически раскрывают соседние без мин</span></li><li><span>После победы или поражения отображается сообщение и кнопка перезапуска (также работает клавиатурный рестарт)</span></li><li><span>Таймер с отображением прошедшего времени в правом верхнем углу</span></li><li><span>Счётчик установленных флагов в левом верхнем углу</span></li></ul>",
+            en: "<div class=\"project-meta\"><p><strong>Technologies: </strong>Unity UI, MVP</p></div><h4>Description:</h4><p>A simple implementation of the classic Minesweeper game built using the MVP architectural pattern.<br>The game is initialized through the GameEntryPoint script.<br>Field size, number of mines, and the restart key (default: R) can be configured in GameConfigSO.</p><p>The gameplay includes the following features:</p><ul class=\"tasks-list\"><li><span>The first click is always safe</span></li><li><span>Left-click reveals a cell; right-click places a flag</span></li><li><span>Empty cells automatically reveal neighboring zero-mine cells</span></li><li><span>Game over (win or lose) shows a message and a restart button (keyboard restart also supported)</span></li><li><span>Elapsed time displayed in the top-right corner</span></li><li><span>Flag count displayed in the top-left corner</span></li></ul>"
+        },
+        links: [
+            { text: { ru: 'GitHub', en: 'GitHub' }, url: 'https://github.com/4xlander/test-minesweeper' }
+        ]
+    },
+    {
         id: 'proj-15',
         icon: '💼',
         image: 'projects/proj-15/cover.jpg',
